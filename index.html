@@ -138,7 +138,9 @@ body{min-height:100vh}
   margin-top:64px;padding-top:28px;border-top:1px solid var(--divider);
   display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
 }
-.foot-left{font-size:12px;color:var(--text-tertiary);letter-spacing:-0.1px}
+.foot-left{font-size:12px;color:var(--text-tertiary);letter-spacing:-0.1px;display:flex;flex-direction:column;gap:4px}
+.visitors{font-size:11px;color:var(--text-quaternary);letter-spacing:0.1px}
+.visitors b{font-weight:700;color:var(--text-secondary)}
 .foot-links{display:flex;gap:16px}
 .foot-links a{
   font-size:12px;font-weight:600;color:var(--text-secondary);text-decoration:none;letter-spacing:-0.1px;
@@ -239,7 +241,10 @@ body{min-height:100vh}
   </a>
 
   <div class="foot reveal">
-    <div class="foot-left">© 2026 강대종 · Built with Claude Code</div>
+    <div class="foot-left">
+      <span>© 2026 강대종 · Built with Claude Code</span>
+      <span class="visitors" data-visitors="ssamssae-landing">오늘 <b>-</b> · 누적 <b>-</b></span>
+    </div>
     <div class="foot-links">
       <a href="https://github.com/ssamssae" target="_blank" rel="noopener">GitHub</a>
       <a href="/daejong-page/newsletter.html">Newsletter</a>
@@ -253,6 +258,18 @@ const els = document.querySelectorAll('.reveal');
 els.forEach((el, i) => {
   setTimeout(() => el.classList.add('show'), 60 * i + 80);
 });
+
+(function () {
+  const el = document.querySelector('[data-visitors]');
+  if (!el) return;
+  fetch('https://visitor-counter.ssamssae.workers.dev/count?site=' + el.dataset.visitors, { cache: 'no-store' })
+    .then(r => r.json())
+    .then(d => {
+      if (typeof d.total !== 'number' || typeof d.today !== 'number') return;
+      el.innerHTML = '오늘 <b>' + d.today.toLocaleString() + '</b> · 누적 <b>' + d.total.toLocaleString() + '</b>';
+    })
+    .catch(() => {});
+})();
 </script>
 </body>
 </html>
