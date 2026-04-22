@@ -122,6 +122,10 @@ body{
   transition:color 0.25s, transform 0.25s;
 }
 .work:hover::after{color:var(--moon);transform:translate(2px,-2px)}
+.work.private{cursor:default}
+.work.private::after{content:'⚐';color:var(--ink-faint);font-size:14px}
+.work.private:hover{transform:none;background:var(--glass);border-color:var(--glass-border)}
+.work.private:hover::after{color:var(--ink-faint);transform:none}
 .work-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
 .work-icon{
   width:40px;height:40px;border-radius:12px;
@@ -230,37 +234,37 @@ body{
       </div>
     </a>
 
-    <a class="work reveal" href="https://github.com/ssamssae/hanjul" target="_blank" rel="noopener">
+    <div class="work private reveal">
       <div class="work-head">
         <div class="work-icon">
           <svg viewBox="0 0 24 24"><path d="M12 3v5"/><path d="M19 12a7 7 0 1 1-14 0"/><path d="M12 20v2"/><circle cx="12" cy="12" r="3"/></svg>
         </div>
         <div>
           <div class="work-name">한줄일기</div>
-          <div class="work-kind">AI Diary · 준비중</div>
+          <div class="work-kind">AI Diary · 비공개 repo · 출시 준비중</div>
         </div>
       </div>
       <p class="work-body">하루 한 줄 쓰면 AI 가 공감 답글을 보내주는 일기 앱. 새벽 하늘 톤 + 달빛 버블 UI.</p>
       <div class="work-tags">
         <span class="work-tag">Flutter</span><span class="work-tag">Cloudflare Workers</span><span class="work-tag">GPT-4o-mini</span>
       </div>
-    </a>
+    </div>
 
-    <a class="work reveal" href="https://github.com/ssamssae/review_radar" target="_blank" rel="noopener">
+    <div class="work private reveal">
       <div class="work-head">
         <div class="work-icon">
           <svg viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/><path d="M8 20h8"/><path d="M12 16v4"/><circle cx="12" cy="10" r="2"/><path d="M12 10l4-4"/></svg>
         </div>
         <div>
           <div class="work-name">심사레이더</div>
-          <div class="work-kind">Review Radar · MVP</div>
+          <div class="work-kind">Review Radar · 비공개 repo · 자기쓰기 MVP</div>
         </div>
       </div>
       <p class="work-body">1인 앱 개발자용 App Store Connect + Play Console 심사 상태 감시 앱. 내가 쓰려고 만든 것.</p>
       <div class="work-tags">
         <span class="work-tag">Flutter</span><span class="work-tag">Gmail API</span><span class="work-tag">v0.1 자기쓰기</span>
       </div>
-    </a>
+    </div>
   </div>
 
   <a class="cta-card reveal" href="/daejong-page/" style="text-decoration:none;color:inherit">
