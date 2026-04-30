@@ -109,6 +109,23 @@ body{min-height:100vh}
   font-size:11px;font-weight:600;letter-spacing:0.2px;color:var(--text-tertiary);
   padding:3px 8px;background:var(--surface-alt);border-radius:999px;
 }
+.work.no-link{cursor:default}
+.work.no-link::after{content:none}
+.work.no-link:hover{transform:none;border-color:var(--border);box-shadow:none}
+.work-stores{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.work-store-mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:30px;height:30px;border-radius:8px;background:var(--surface-alt);
+  transition:background 0.15s ease, transform 0.15s ease;
+}
+.work-store-mark:hover{background:#E5E8EB;transform:translateY(-1px)}
+.work-store-mark img{width:18px;height:18px;display:block}
+.work-source{
+  font-size:11px;font-weight:600;letter-spacing:0.2px;color:var(--text-tertiary);
+  padding:3px 8px;background:var(--surface-alt);border-radius:999px;text-decoration:none;
+  transition:color 0.15s ease, background 0.15s ease;
+}
+.work-source:hover{color:var(--brand);background:#E5E8EB}
 
 /* --- CTA to portfolio --- */
 .cta-card{
@@ -189,7 +206,7 @@ body{min-height:100vh}
   </div>
 
   <div class="works">
-    <a class="work reveal" href="https://github.com/ssamssae/simple-memo-app" target="_blank" rel="noopener">
+    <div class="work no-link reveal">
       <div class="work-head">
         <div class="work-icon">
           <svg viewBox="0 0 24 24"><path d="M6 4h9l5 5v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M15 4v5h5"/><path d="M9 14h6"/><path d="M9 18h4"/></svg>
@@ -203,9 +220,14 @@ body{min-height:100vh}
       <div class="work-tags">
         <span class="work-tag">Flutter</span><span class="work-tag">shared_preferences</span><span class="work-tag">App Store + Play</span>
       </div>
-    </a>
+      <div class="work-stores">
+        <a class="work-store-mark" href="https://apps.apple.com/kr/app/id6762068073" target="_blank" rel="noopener" aria-label="메모요 App Store"><img src="./badge_appstore_kr.svg" alt="App Store"></a>
+        <a class="work-store-mark" href="https://play.google.com/store/apps/details?id=com.daejongkang.simple_memo_app" target="_blank" rel="noopener" aria-label="메모요 Google Play"><img src="./badge_googleplay_kr.svg" alt="Google Play"></a>
+        <a class="work-source" href="https://github.com/ssamssae/simple-memo-app" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
 
-    <div class="work private reveal">
+    <div class="work no-link reveal">
       <div class="work-head">
         <div class="work-icon">
           <svg viewBox="0 0 24 24"><path d="M10.5 4.5l-6 6a4.95 4.95 0 0 0 7 7l6-6a4.95 4.95 0 0 0-7-7z"/><path d="M7 14l7-7"/></svg>
@@ -219,9 +241,12 @@ body{min-height:100vh}
       <div class="work-tags">
         <span class="work-tag">Flutter</span><span class="work-tag">flutter_local_notifications</span><span class="work-tag">App Store · Play Console</span>
       </div>
+      <div class="work-stores">
+        <a class="work-store-mark" href="https://apps.apple.com/kr/app/id6762100639" target="_blank" rel="noopener" aria-label="약먹자 App Store"><img src="./badge_appstore_kr.svg" alt="App Store"></a>
+      </div>
     </div>
 
-    <a class="work reveal" href="https://github.com/ssamssae/dutch_pay_calculator" target="_blank" rel="noopener">
+    <div class="work no-link reveal">
       <div class="work-head">
         <div class="work-icon">
           <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 9h8"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>
@@ -235,9 +260,13 @@ body{min-height:100vh}
       <div class="work-tags">
         <span class="work-tag">Flutter</span><span class="work-tag">App Store · Play Console</span><span class="work-tag">오픈소스</span>
       </div>
-    </a>
+      <div class="work-stores">
+        <a class="work-store-mark" href="https://apps.apple.com/kr/app/id6762072499" target="_blank" rel="noopener" aria-label="더치페이 App Store"><img src="./badge_appstore_kr.svg" alt="App Store"></a>
+        <a class="work-source" href="https://github.com/ssamssae/dutch_pay_calculator" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
 
-    <div class="work private reveal">
+    <div class="work no-link reveal">
       <div class="work-head">
         <div class="work-icon">
           <svg viewBox="0 0 24 24"><path d="M12 3v5"/><path d="M19 12a7 7 0 1 1-14 0"/><path d="M12 20v2"/><circle cx="12" cy="12" r="3"/></svg>
@@ -250,6 +279,10 @@ body{min-height:100vh}
       <p class="work-body">하루 한 줄 쓰면 AI 가 공감 답글을 보내주는 일기 앱. 새벽 하늘 톤 + 달빛 버블 UI.</p>
       <div class="work-tags">
         <span class="work-tag">Flutter</span><span class="work-tag">Cloudflare Workers</span><span class="work-tag">GPT-4o-mini</span>
+      </div>
+      <div class="work-stores">
+        <a class="work-store-mark" href="https://apps.apple.com/kr/app/id6764308678" target="_blank" rel="noopener" aria-label="한줄일기 App Store"><img src="./badge_appstore_kr.svg" alt="App Store"></a>
+        <a class="work-store-mark" href="https://play.google.com/store/apps/details?id=com.daejongkang.hanjul" target="_blank" rel="noopener" aria-label="한줄일기 Google Play"><img src="./badge_googleplay_kr.svg" alt="Google Play"></a>
       </div>
     </div>
 
