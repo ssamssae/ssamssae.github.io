@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="강대종 · 1인 앱 개발자. 메모요 · 약먹자 · 더치페이 · 한줄일기 · 한컵 · 포모도로. 하루에 하나씩, 직접 만드는 앱."/>
-<meta property="og:title" content="강대종 · DAEJONG"/>
-<meta property="og:description" content="1인 앱 개발자. 매일 만든다, 한 줄씩."/>
-<meta property="og:type" content="website"/>
+<meta name="description" content="강대종 · 마이너스베타 스튜디오 대표. 식품생물공학을 전공한 비개발자에서, 혼자 매일 하나씩 앱을 만들어 출시하는 1인 앱 개발자로."/>
+<meta property="og:title" content="강대종 · 마이너스베타 스튜디오 대표"/>
+<meta property="og:description" content="식품생물공학 전공 비개발자에서 1인 앱 개발자로. 매일 하나씩, 직접 만든다."/>
+<meta property="og:type" content="profile"/>
 <meta property="og:url" content="https://ssamssae.github.io/"/>
+<meta property="og:image" content="https://ssamssae.github.io/profile.jpg"/>
 <meta name="theme-color" content="#FFFFFF"/>
-<title>강대종 · DAEJONG</title>
+<title>강대종 · 마이너스베타 스튜디오 대표</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
 <style>
@@ -32,142 +33,80 @@
 html,body{background:var(--bg);color:var(--text-primary);font-family:var(--font);-webkit-font-smoothing:antialiased}
 body{min-height:100vh}
 
-.wrap{max-width:640px;margin:0 auto;padding:72px 24px 120px}
+.wrap{max-width:600px;margin:0 auto;padding:72px 24px 120px}
 
 /* --- Hero --- */
-.hero{padding:8px 4px 40px;border-bottom:1px solid var(--divider);margin-bottom:40px}
+.hero{padding:8px 4px 40px;border-bottom:1px solid var(--divider);margin-bottom:8px}
+.avatar{
+  width:116px;height:116px;border-radius:50%;object-fit:cover;object-position:center 26%;
+  border:1px solid var(--border);box-shadow:0 8px 28px rgba(25,31,40,0.10);
+  display:block;margin-bottom:22px;background:var(--surface-alt);
+}
 .eyebrow{
   display:inline-flex;align-items:center;gap:6px;
-  font-size:11px;font-weight:700;letter-spacing:2px;
-  color:var(--brand-deep);text-transform:uppercase;margin-bottom:18px;
+  font-size:11px;font-weight:700;letter-spacing:1.5px;
+  color:var(--brand-deep);text-transform:uppercase;margin-bottom:16px;
   padding:6px 12px;background:var(--brand-soft);border-radius:999px;
 }
 .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand);animation:pulse 2.6s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-.name-kr{
-  font-size:40px;font-weight:800;letter-spacing:-1.4px;line-height:1.1;color:var(--text-primary);
-}
-.name-en{
-  margin-top:6px;font-size:12px;font-weight:600;letter-spacing:3px;color:var(--text-tertiary);
-}
+.name-kr{font-size:40px;font-weight:800;letter-spacing:-1.4px;line-height:1.1;color:var(--text-primary)}
+.name-en{margin-top:6px;font-size:12px;font-weight:600;letter-spacing:3px;color:var(--text-tertiary)}
+.role{margin-top:14px;font-size:15px;font-weight:700;letter-spacing:-0.3px;color:var(--text-primary)}
 .tagline{
-  margin-top:22px;font-size:16.5px;font-weight:500;line-height:1.65;color:var(--text-secondary);letter-spacing:-0.2px;
-  max-width:460px;
+  margin-top:16px;font-size:16px;font-weight:500;line-height:1.7;color:var(--text-secondary);letter-spacing:-0.2px;max-width:480px;
 }
 .tagline em{font-style:normal;color:var(--brand-deep);font-weight:700}
 
-.meta-row{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+.meta-row{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
 .chip{
   display:inline-flex;align-items:center;gap:6px;
   padding:7px 13px;font-size:12px;font-weight:600;letter-spacing:-0.1px;
-  color:var(--text-secondary);background:var(--surface-alt);
-  border-radius:999px;
+  color:var(--text-secondary);background:var(--surface-alt);border-radius:999px;
 }
 .chip .c-dot{width:6px;height:6px;border-radius:50%;background:var(--text-tertiary)}
-.chip.live .c-dot{background:#22C55E}
 
 /* --- Section label --- */
-.section-head{
-  margin:52px 0 16px;display:flex;align-items:baseline;justify-content:space-between;gap:12px;
-}
-.section-label{
-  font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-tertiary);text-transform:uppercase;
-}
-.section-note{font-size:12px;color:var(--text-quaternary);letter-spacing:-0.1px}
+.section-head{margin:44px 0 16px}
+.section-label{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--text-tertiary);text-transform:uppercase}
 
-/* --- Work cards --- */
-.works{display:grid;gap:12px}
-.work{
-  display:block;padding:20px;background:var(--bg);border:1px solid var(--border);border-radius:16px;
-  text-decoration:none;color:inherit;position:relative;overflow:hidden;
+/* --- About --- */
+.about{font-size:15px;font-weight:500;line-height:1.78;color:var(--text-secondary);letter-spacing:-0.2px;max-width:520px}
+.about p+p{margin-top:14px}
+.about strong{color:var(--text-primary);font-weight:700}
+
+/* --- CTA cards --- */
+.cta-card{
+  margin-top:12px;padding:22px;background:var(--surface);border:1px solid var(--border);border-radius:16px;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;text-decoration:none;color:inherit;
   transition:transform 0.2s cubic-bezier(0.2,0.8,0.2,1), border-color 0.2s, box-shadow 0.2s;
 }
-.work:hover{transform:translateY(-1px);border-color:#D1D6DB;box-shadow:0 6px 20px rgba(25,31,40,0.06)}
-.work::after{
-  content:'↗';position:absolute;top:20px;right:20px;
-  font-size:16px;color:var(--text-tertiary);font-weight:500;
-  transition:color 0.2s, transform 0.2s;
-}
-.work:hover::after{color:var(--brand);transform:translate(2px,-2px)}
-.work.private{cursor:default}
-.work.private::after{content:'비공개';font-size:10.5px;font-weight:700;letter-spacing:1px;color:var(--text-quaternary);background:var(--surface-alt);padding:4px 9px;border-radius:999px;top:18px;right:18px}
-.work.private:hover{transform:none;border-color:var(--border);box-shadow:none}
-.work.private:hover::after{color:var(--text-quaternary);transform:none}
-
-.work-head{display:flex;align-items:center;gap:13px;margin-bottom:10px}
-.work-icon{
-  width:40px;height:40px;border-radius:12px;
-  background:var(--brand-soft);
-  display:flex;align-items:center;justify-content:center;flex:none;
-}
-.work-icon svg{width:22px;height:22px;fill:none;stroke:var(--brand);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.work-name{font-size:16.5px;font-weight:700;letter-spacing:-0.3px;color:var(--text-primary)}
-.work-kind{font-size:11.5px;font-weight:600;letter-spacing:0.5px;color:var(--text-tertiary);margin-top:2px}
-.work-body{font-size:13.5px;font-weight:500;line-height:1.6;color:var(--text-secondary);letter-spacing:-0.2px;max-width:480px}
-.work-tags{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
-.work-tag{
-  font-size:11px;font-weight:600;letter-spacing:0.2px;color:var(--text-tertiary);
-  padding:3px 8px;background:var(--surface-alt);border-radius:999px;
-}
-.work.no-link{cursor:default}
-.work.no-link::after{content:none}
-.work.no-link:hover{transform:none;border-color:var(--border);box-shadow:none}
-.work-stores{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.work-store-mark{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:30px;height:30px;border-radius:8px;background:var(--surface-alt);
-  transition:background 0.15s ease, transform 0.15s ease;
-}
-.work-store-mark:hover{background:#E5E8EB;transform:translateY(-1px)}
-.work-store-mark img{width:18px;height:18px;display:block}
-.work-source{
-  font-size:11px;font-weight:600;letter-spacing:0.2px;color:var(--text-tertiary);
-  padding:3px 8px;background:var(--surface-alt);border-radius:999px;text-decoration:none;
-  transition:color 0.15s ease, background 0.15s ease;
-}
-.work-source:hover{color:var(--brand);background:#E5E8EB}
-
-/* --- CTA to portfolio --- */
-.cta-card{
-  margin-top:20px;padding:24px 22px;
-  background:var(--brand-soft);
-  border-radius:16px;
-  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
-  text-decoration:none;color:inherit;
-  transition:background 0.2s;
-}
-.cta-card:hover{background:#DCE9FF}
+.cta-card:hover{transform:translateY(-1px);border-color:#D1D6DB;box-shadow:0 6px 20px rgba(25,31,40,0.06)}
+.cta-card.brand{background:var(--brand-soft);border-color:transparent}
+.cta-card.brand:hover{background:#DCE9FF;box-shadow:0 6px 20px rgba(49,130,246,0.14)}
 .cta-text{flex:1;min-width:200px}
-.cta-title{font-size:16px;font-weight:700;color:var(--brand-deep);letter-spacing:-0.3px;line-height:1.35}
-.cta-sub{margin-top:4px;font-size:12.5px;color:var(--brand-deep);opacity:0.75;letter-spacing:-0.1px}
-.cta-btn{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:12px 18px;background:var(--brand);color:#fff;
-  border-radius:12px;font-size:14px;font-weight:700;letter-spacing:-0.2px;
-  box-shadow:0 4px 14px rgba(49,130,246,0.35);
-  transition:transform 0.2s, box-shadow 0.2s;
-}
-.cta-card:hover .cta-btn{transform:translateY(-1px);box-shadow:0 6px 18px rgba(49,130,246,0.45)}
-.cta-btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.cta-title{font-size:16px;font-weight:700;color:var(--text-primary);letter-spacing:-0.3px;line-height:1.35}
+.cta-card.brand .cta-title{color:var(--brand-deep)}
+.cta-sub{margin-top:4px;font-size:12.5px;color:var(--text-tertiary);letter-spacing:-0.1px}
+.cta-card.brand .cta-sub{color:var(--brand-deep);opacity:0.72}
+.cta-arrow{font-size:18px;color:var(--text-tertiary);font-weight:500;transition:color 0.2s, transform 0.2s}
+.cta-card:hover .cta-arrow{color:var(--brand);transform:translate(2px,-2px)}
 
 /* --- Footer --- */
 .foot{
-  margin-top:64px;padding-top:28px;border-top:1px solid var(--divider);
+  margin-top:56px;padding-top:28px;border-top:1px solid var(--divider);
   display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
 }
 .foot-left{font-size:12px;color:var(--text-tertiary);letter-spacing:-0.1px}
 .foot-links{display:flex;gap:16px}
-.foot-links a{
-  font-size:12px;font-weight:600;color:var(--text-secondary);text-decoration:none;letter-spacing:-0.1px;
-  transition:color 0.2s;
-}
+.foot-links a{font-size:12px;font-weight:600;color:var(--text-secondary);text-decoration:none;letter-spacing:-0.1px;transition:color 0.2s}
 .foot-links a:hover{color:var(--brand)}
 
 @media (max-width:480px){
   .wrap{padding:56px 20px 96px}
   .name-kr{font-size:34px;letter-spacing:-1.2px}
-  .tagline{font-size:15.5px}
-  .cta-card{padding:20px 18px}
+  .tagline{font-size:15px}
+  .avatar{width:100px;height:100px}
 }
 
 /* reveal on load */
@@ -179,156 +118,49 @@ body{min-height:100vh}
 
 <div class="wrap">
   <section class="hero reveal">
-    <div class="eyebrow"><span class="dot"></span>CURRENTLY BUILDING</div>
+    <img class="avatar" src="./profile.jpg" alt="강대종 프로필 사진"/>
+    <div class="eyebrow"><span class="dot"></span>FOUNDER · 마이너스베타 스튜디오</div>
     <h1 class="name-kr">강대종</h1>
-    <div class="name-en">DAEJONG · 1인 개발자</div>
-    <p class="tagline">혼자 만드는 1인 앱 개발자.<br/>매일 한 줄, 매주 한 커밋. <em>작게 자주</em> 만드는 걸 좋아합니다.</p>
+    <div class="name-en">DAEJONG KANG</div>
+    <div class="role">마이너스베타 스튜디오 대표 · 1인 앱 개발자</div>
+    <p class="tagline">식품생물공학을 전공한 <em>비(非)개발자</em>.<br/>코드라곤 몰랐던 사람이 혼자 기획·디자인·개발·운영까지 배워, 매일 하나씩 앱을 만들어 출시합니다.</p>
     <div class="meta-row">
-      <span class="chip live"><span class="c-dot"></span>Seoul · Asia/Seoul</span>
-      <span class="chip"><span class="c-dot"></span>Flutter · Dart · Claude Code</span>
+      <span class="chip"><span class="c-dot"></span>Seoul · 대한민국</span>
+      <span class="chip"><span class="c-dot"></span>경기대학교 식품생물공학과</span>
+      <span class="chip"><span class="c-dot"></span>비개발자 출신 · 독학</span>
     </div>
   </section>
 
-  <a class="cta-card reveal" href="/daejong-page/">
+  <div class="section-head reveal"><span class="section-label">About</span></div>
+  <div class="about reveal">
+    <p>2011년 경기대학교 <strong>식품생물공학과</strong>를 졸업하고, 한동안 개발과는 거리가 먼 일들을 해왔습니다. 코드 한 줄 몰랐지만 “필요한 건 직접 만들면 되지 않을까”라는 생각으로 혼자 앱 개발을 시작했습니다.</p>
+    <p>지금은 매일 하나씩 작게 만들어 App Store와 Google Play에 출시하는 <strong>1인 개발자이자 마이너스베타 스튜디오 대표</strong>입니다. 한줄일기·메모요를 비롯한 여러 앱을 직접 운영하고, 모든 작업 과정은 작업일지에 매일 기록합니다.</p>
+  </div>
+
+  <div class="section-head reveal"><span class="section-label">지금 만드는 중</span></div>
+  <a class="cta-card brand reveal" href="https://cheotireum.kangdaejong.com" target="_blank" rel="noopener">
     <div class="cta-text">
-      <div class="cta-title">포트폴리오 · 작업일지 · 완료 체크리스트</div>
-      <div class="cta-sub">매일의 개발 기록과 과거 프로젝트 아카이브</div>
+      <div class="cta-title">첫이름 · AI 사주 작명</div>
+      <div class="cta-sub">사주·획수·인명용 한자를 분석해 이름을 짓는 작명 서비스</div>
     </div>
-    <span class="cta-btn">
-      daejong-page 열기
-      <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </span>
+    <span class="cta-arrow">↗</span>
   </a>
 
-  <div class="section-head reveal">
-    <span class="section-label">Works · 운영중</span>
-    <span class="section-note">tap to open</span>
-  </div>
-
-  <div class="works">
-    <div class="work no-link reveal">
-      <div class="work-head">
-        <div class="work-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 3v5"/><path d="M19 12a7 7 0 1 1-14 0"/><path d="M12 20v2"/><circle cx="12" cy="12" r="3"/></svg>
-        </div>
-        <div>
-          <div class="work-name">한줄일기</div>
-          <div class="work-kind">AI DIARY · iOS LIVE · Android LIVE · ₩1,900</div>
-        </div>
-      </div>
-      <p class="work-body">하루 한 줄 쓰면 AI 가 공감 답글을 보내주는 일기 앱. 새벽 하늘 톤 + 달빛 버블 UI.</p>
-      <div class="work-tags">
-        <span class="work-tag">Flutter</span><span class="work-tag">Cloudflare Workers</span><span class="work-tag">GPT-4o-mini</span>
-      </div>
-      <div class="work-stores">
-        <a class="work-store-mark" href="https://apps.apple.com/kr/app/id6764308678" target="_blank" rel="noopener" aria-label="한줄일기 App Store"><img src="./badge_appstore_kr.svg" alt="App Store"></a>
-        <a class="work-store-mark" href="https://play.google.com/store/apps/details?id=com.daejongkang.hanjul" target="_blank" rel="noopener" aria-label="한줄일기 Google Play"><img src="./badge_googleplay_kr.svg" alt="Google Play"></a>
-      </div>
+  <div class="section-head reveal"><span class="section-label">기록 · 포트폴리오</span></div>
+  <a class="cta-card reveal" href="https://work.kangdaejong.com/" target="_blank" rel="noopener">
+    <div class="cta-text">
+      <div class="cta-title">작업일지</div>
+      <div class="cta-sub">매일의 개발 기록과 출시한 앱들의 아카이브</div>
     </div>
-
-    <div class="work no-link reveal">
-      <div class="work-head">
-        <div class="work-icon">
-          <svg viewBox="0 0 24 24"><path d="M6 4h9l5 5v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M15 4v5h5"/><path d="M9 14h6"/><path d="M9 18h4"/></svg>
-        </div>
-        <div>
-          <div class="work-name">메모요</div>
-          <div class="work-kind">MEMO · iOS · ANDROID</div>
-        </div>
-      </div>
-      <p class="work-body">한 손으로 쓰는 가벼운 메모. 계정 없음, 광고 없음, 로컬 저장. Flutter 로 만든 첫 운영 앱.</p>
-      <div class="work-tags">
-        <span class="work-tag">Flutter</span><span class="work-tag">shared_preferences</span><span class="work-tag">App Store + Play</span>
-      </div>
-      <div class="work-stores">
-        <a class="work-store-mark" href="https://apps.apple.com/kr/app/id6762068073" target="_blank" rel="noopener" aria-label="메모요 App Store"><img src="./badge_appstore_kr.svg" alt="App Store"></a>
-        <a class="work-store-mark" href="https://play.google.com/store/apps/details?id=com.daejongkang.simple_memo_app" target="_blank" rel="noopener" aria-label="메모요 Google Play"><img src="./badge_googleplay_kr.svg" alt="Google Play"></a>
-      </div>
-    </div>
-
-    <div class="work no-link reveal">
-      <div class="work-head">
-        <div class="work-icon">
-          <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 9h8"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>
-        </div>
-        <div>
-          <div class="work-name">더치페이 계산기</div>
-          <div class="work-kind">DUTCHPAY · iOS 출시 v1.0.2 · Android 비공개 테스트</div>
-        </div>
-      </div>
-      <p class="work-body">여러 명이 먹은 자리를 편하게 나눠 내는 정산 도우미. 금액·인원수 입력만으로 바로 정산하고 남은 금액도 알려줍니다.</p>
-      <div class="work-tags">
-        <span class="work-tag">Flutter</span><span class="work-tag">App Store · Play Console</span><span class="work-tag">오픈소스</span>
-      </div>
-      <div class="work-stores">
-        <a class="work-store-mark" href="https://apps.apple.com/kr/app/id6762072499" target="_blank" rel="noopener" aria-label="더치페이 App Store"><img src="./badge_appstore_kr.svg" alt="App Store"></a>
-      </div>
-    </div>
-
-    <div class="work no-link reveal">
-      <div class="work-head">
-        <div class="work-icon">
-          <svg viewBox="0 0 24 24"><path d="M10.5 4.5l-6 6a4.95 4.95 0 0 0 7 7l6-6a4.95 4.95 0 0 0-7-7z"/><path d="M7 14l7-7"/></svg>
-        </div>
-        <div>
-          <div class="work-name">약먹자</div>
-          <div class="work-kind">MEDICATION · iOS 출시 v1.0.1 · Android 비공개 테스트</div>
-        </div>
-      </div>
-      <p class="work-body">복약 시간을 놓치지 않게 도와주는 알림 앱. 약 등록 → 알림 시각만 설정하면 매일 챙겨줍니다.</p>
-      <div class="work-tags">
-        <span class="work-tag">Flutter</span><span class="work-tag">flutter_local_notifications</span><span class="work-tag">App Store · Play Console</span>
-      </div>
-      <div class="work-stores">
-        <a class="work-store-mark" href="https://apps.apple.com/kr/app/id6762100639" target="_blank" rel="noopener" aria-label="약먹자 App Store"><img src="./badge_appstore_kr.svg" alt="App Store"></a>
-      </div>
-    </div>
-
-    <div class="work no-link reveal">
-      <div class="work-head">
-        <div class="work-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 1 6 6c0 4-3 7-6 12-3-5-6-8-6-12a6 6 0 0 1 6-6z"/><path d="M12 9v3l2 1"/></svg>
-        </div>
-        <div>
-          <div class="work-name">한컵</div>
-          <div class="work-kind">WATER · iOS 출시</div>
-        </div>
-      </div>
-      <p class="work-body">하루 물 섭취량 트래커. 1컵 단위 카운트와 일일 목표량으로 수분 섭취를 챙겨주는 미니 앱.</p>
-      <div class="work-tags">
-        <span class="work-tag">Flutter</span><span class="work-tag">shared_preferences</span><span class="work-tag">App Store</span>
-      </div>
-      <div class="work-stores">
-        <a class="work-store-mark" href="https://apps.apple.com/kr/app/id6765536616" target="_blank" rel="noopener" aria-label="한컵 App Store"><img src="./badge_appstore_kr.svg" alt="App Store"></a>
-      </div>
-    </div>
-
-    <div class="work no-link reveal">
-      <div class="work-head">
-        <div class="work-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M9 3h6"/></svg>
-        </div>
-        <div>
-          <div class="work-name">포모도로</div>
-          <div class="work-kind">FOCUS TIMER · iOS 출시</div>
-        </div>
-      </div>
-      <p class="work-body">25분 집중 + 5분 휴식 사이클 타이머. 단순함을 지키되 깔끔한 인터랙션으로 마무리한 집중 보조 앱.</p>
-      <div class="work-tags">
-        <span class="work-tag">Flutter</span><span class="work-tag">flutter-factory</span><span class="work-tag">App Store</span>
-      </div>
-      <div class="work-stores">
-        <a class="work-store-mark" href="https://apps.apple.com/kr/app/id6765536777" target="_blank" rel="noopener" aria-label="포모도로 App Store"><img src="./badge_appstore_kr.svg" alt="App Store"></a>
-      </div>
-    </div>
-  </div>
+    <span class="cta-arrow">↗</span>
+  </a>
 
   <div class="foot reveal">
-    <div class="foot-left">© 2026 강대종 · Built with Claude Code</div>
+    <div class="foot-left">© 2026 강대종 · 마이너스베타 스튜디오</div>
     <div class="foot-links">
       <a href="https://github.com/ssamssae" target="_blank" rel="noopener">GitHub</a>
-      <a href="/daejong-page/newsletter.html">Newsletter</a>
-      <a href="/daejong-page/portfolio.html">Portfolio</a>
+      <a href="https://work.kangdaejong.com/" target="_blank" rel="noopener">작업일지</a>
+      <a href="mailto:ssamssae@naver.com">Email</a>
     </div>
   </div>
 </div>
@@ -336,7 +168,7 @@ body{min-height:100vh}
 <script>
 const els = document.querySelectorAll('.reveal');
 els.forEach((el, i) => {
-  setTimeout(() => el.classList.add('show'), 60 * i + 80);
+  setTimeout(() => el.classList.add('show'), 70 * i + 80);
 });
 </script>
 </body>
