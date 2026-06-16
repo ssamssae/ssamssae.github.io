@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"/>
+<script src="https://kangdaejong.com/mb-components.js" defer></script>
 <style>
 :root{
   --bg:#0a0a0a;
@@ -35,18 +36,7 @@
 html,body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased}
 body{min-height:100vh}
 
-/* --- Site header (standardized nav) --- */
-.site-header{border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:10}
-.nav-inner{max-width:640px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.brand{display:inline-flex;align-items:center}
-.brand img{height:30px;width:30px;display:block}
-.nav-links{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:13px}
-.nav-links a{color:var(--fg-dim);text-decoration:none}
-.nav-links a:hover{color:var(--magenta)}
-.nav-links a.home-link{color:var(--cyan)}
-.nav-links a.home-link:hover{color:var(--magenta)}
-
-.wrap{max-width:640px;margin:0 auto;padding:64px 24px 96px}
+.wrap{max-width:640px;margin:0 auto;padding:48px 24px 96px}
 
 /* --- Hero --- */
 .hero{padding:4px 2px 36px;border-bottom:1px solid var(--border);margin-bottom:8px}
@@ -102,14 +92,6 @@ body{min-height:100vh}
 .cta-arrow{font-family:var(--mono);font-size:17px;color:var(--magenta);font-weight:500;transition:transform 0.2s}
 .cta-card:hover .cta-arrow{transform:translate(2px,-2px)}
 
-/* --- Footer (standardized: 마이너스베타스튜디오) --- */
-footer{border-top:1px solid var(--border);max-width:640px;margin:48px auto 0;padding:32px 24px 64px;font-family:var(--mono);font-size:12px;color:var(--fg-dim)}
-.foot-links{margin-bottom:16px;display:flex;gap:18px;flex-wrap:wrap}
-.foot-links a{color:var(--fg-dim);text-decoration:none}
-.foot-links a:hover{color:var(--cyan)}
-.biz{display:flex;flex-direction:column;gap:4px;color:var(--fg-mute)}
-.copy{margin-top:16px;color:var(--fg-mute)}
-
 @media (max-width:480px){
   .wrap{padding:48px 20px 80px}
   .name-kr{font-size:35px;letter-spacing:-1.3px}
@@ -124,18 +106,7 @@ footer{border-top:1px solid var(--border);max-width:640px;margin:48px auto 0;pad
 </head>
 <body>
 
-<header class="site-header">
-  <div class="nav-inner">
-    <a class="brand" href="https://kangdaejong.com" aria-label="마이너스베타스튜디오"><img src="./minusbeta-badge.svg" alt="마이너스베타스튜디오" width="30" height="30"/></a>
-    <div class="nav-links">
-      <a href="https://kangdaejong.com">회사소개</a>
-      <a class="home-link" href="https://founder.kangdaejong.com">대표소개</a>
-      <a href="https://work.kangdaejong.com">작업일지</a>
-      <a href="https://work.kangdaejong.com/newsletter">뉴스레터</a>
-      <a href="https://work.kangdaejong.com/apps">products</a>
-    </div>
-  </div>
-</header>
+<mb-header active="founder"></mb-header>
 
 <div class="wrap">
   <section class="hero reveal">
@@ -168,21 +139,7 @@ footer{border-top:1px solid var(--border);max-width:640px;margin:48px auto 0;pad
   </a>
 </div>
 
-<footer>
-  <div class="foot-links">
-    <a href="https://github.com/ssamssae" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://work.kangdaejong.com/">작업일지</a>
-    <a href="mailto:ssamssae@naver.com">ssamssae@naver.com</a>
-  </div>
-  <div class="biz">
-    <span>마이너스베타스튜디오 · 대표 강대종</span>
-    <span>사업자등록번호 878-21-02478</span>
-    <span>통신판매업신고번호 제 2026-서울마포-1177 호</span>
-    <span>서울특별시 마포구 만리재로10길 4 (공덕동)</span>
-    <span>정보통신업 / 응용 소프트웨어 개발 및 공급업</span>
-  </div>
-  <div class="copy">© 2026 마이너스베타스튜디오. All rights reserved.</div>
-</footer>
+<mb-footer></mb-footer>
 
 <script>
 const els = document.querySelectorAll('.reveal');
