@@ -12,6 +12,20 @@ const checks = [
     ok: /<mb-header active="founder"><\/mb-header>/.test(html),
   },
   {
+    label: "founder page keeps representative title copy",
+    ok:
+      /<title>강대종 · 마이너스베타스튜디오 대표<\/title>/.test(html) &&
+      /<meta property="og:title" content="강대종 · 마이너스베타스튜디오 대표"\/>/.test(html),
+  },
+  {
+    label: "founder page uses monochrome palette with CTA accent",
+    ok:
+      /--bg:#ffffff;/.test(html) &&
+      /--fg:#111111;/.test(html) &&
+      /--accent:#2563eb;/.test(html) &&
+      !/#00e5ff|#00b8d4|#ff00aa|#0a0a0a/.test(html),
+  },
+  {
     label: "founder CTA points work root as 작업장",
     ok:
       /<a class="cta-card reveal" href="https:\/\/work\.kangdaejong\.com\/"[^>]*>/.test(html) &&

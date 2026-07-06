@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="강대종 · 마이너스베타스튜디오 대표. 식품생물공학을 전공한 비개발자에서, AI와 함께 앱·웹 서비스·자동화 실험을 직접 만들고 운영하는 1인 빌더로."/>
+<meta name="description" content="강대종 · 마이너스베타스튜디오 대표. 식품생물공학을 전공한 비개발자에서, AI와 함께 앱·웹 서비스·자동화 도구를 직접 만들고 운영하는 1인 빌더로."/>
 <meta property="og:title" content="강대종 · 마이너스베타스튜디오 대표"/>
-<meta property="og:description" content="비개발자 출신 1인 빌더. AI와 함께 앱·웹 서비스·자동화 실험을 작게 자주 만들고 운영합니다."/>
+<meta property="og:description" content="비개발자 출신 1인 빌더. AI와 함께 앱·웹 서비스·자동화 도구를 작게 자주 만들고 운영합니다."/>
 <meta property="og:type" content="profile"/>
 <meta property="og:url" content="https://founder.kangdaejong.com/"/>
 <meta property="og:image" content="https://founder.kangdaejong.com/profile.jpg"/>
-<meta name="theme-color" content="#0a0a0a"/>
+<meta name="theme-color" content="#ffffff"/>
 <title>강대종 · 마이너스베타스튜디오 대표</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -19,16 +19,15 @@
 <script src="https://kangdaejong.com/mb-components.js" defer></script>
 <style>
 :root{
-  --bg:#0a0a0a;
-  --bg-elev:#131313;
-  --border:#232323;
-  --border-soft:#1a1a1a;
-  --fg:#f5f5f5;
-  --fg-dim:#b9c0c9;
-  --fg-mute:#8b95a1;
-  --cyan:#00e5ff;
-  --cyan-dim:#00b8d4;
-  --magenta:#ff00aa;
+  --bg:#ffffff;
+  --bg-elev:#f7f7f7;
+  --border:#dedede;
+  --border-soft:#eeeeee;
+  --fg:#111111;
+  --fg-dim:#4f4f4f;
+  --fg-mute:#777777;
+  --accent:#2563eb;
+  --accent-dim:#1748b8;
   --sans:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,sans-serif;
   --mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
 }
@@ -36,68 +35,69 @@
 html,body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased}
 body{min-height:100vh}
 
-.wrap{max-width:640px;margin:0 auto;padding:48px 24px 96px}
+.wrap{max-width:1120px;margin:0 auto;padding:84px 24px 112px}
 
 /* --- Hero --- */
-.hero{padding:4px 2px 36px;border-bottom:1px solid var(--border);margin-bottom:8px}
+.hero{min-height:520px;padding:80px 2px 64px;border-bottom:1px solid var(--border);margin-bottom:8px}
 .avatar{
   width:112px;height:112px;border-radius:50%;object-fit:cover;object-position:center 26%;
-  border:1px solid var(--border);box-shadow:0 0 0 4px var(--bg-elev),0 8px 30px rgba(0,0,0,0.6);
+  border:1px solid var(--border);box-shadow:0 0 0 4px var(--bg-elev);
   display:block;background:var(--bg-elev);
 }
 .hero-top{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:24px}
 .namecard-link{display:block;flex:0 1 330px;line-height:0}
-.namecard{width:100%;height:auto;border-radius:12px;border:1px solid var(--border);box-shadow:0 8px 30px rgba(0,0,0,0.5);display:block}
+.namecard{width:100%;height:auto;border-radius:8px;border:1px solid var(--border);display:block}
 .eyebrow{
   display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);
-  font-size:11px;font-weight:500;letter-spacing:1px;
-  color:var(--cyan);text-transform:uppercase;margin-bottom:16px;
-  padding:6px 12px;background:rgba(0,229,255,0.07);border:1px solid rgba(0,229,255,0.22);border-radius:6px;
+  font-size:11px;font-weight:600;letter-spacing:0;
+  color:var(--accent);text-transform:uppercase;margin-bottom:16px;
+  padding:6px 12px;background:#eef4ff;border:1px solid #c9dcff;border-radius:6px;
 }
-.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:pulse 2.6s ease-in-out infinite}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.6s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
-.name-kr{font-size:42px;font-weight:800;letter-spacing:-1.6px;line-height:1.08;color:var(--fg)}
-.name-en{margin-top:8px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:3px;color:var(--fg-mute)}
-.role{margin-top:16px;font-size:15px;font-weight:700;letter-spacing:-0.3px;color:var(--fg)}
+.name-kr{font-size:clamp(48px,7vw,88px);font-weight:800;letter-spacing:0;line-height:1.02;color:var(--fg)}
+.name-en{margin-top:8px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0;color:var(--fg-mute)}
+.role{margin-top:18px;font-size:15px;font-weight:700;letter-spacing:0;color:var(--fg)}
 .tagline{
-  margin-top:16px;font-size:16px;font-weight:500;line-height:1.72;color:var(--fg-dim);letter-spacing:-0.2px;max-width:480px;
+  margin-top:22px;font-size:20px;font-weight:500;line-height:1.72;color:var(--fg-dim);letter-spacing:0;max-width:680px;
 }
-.tagline em{font-style:normal;color:var(--cyan);font-weight:700}
+.tagline em{font-style:normal;color:var(--accent);font-weight:700}
 
 .meta-row{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
 .chip{
   display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);
-  padding:6px 12px;font-size:11.5px;font-weight:400;letter-spacing:-0.1px;
+  padding:6px 12px;font-size:11.5px;font-weight:400;letter-spacing:0;
   color:var(--fg-mute);background:var(--bg-elev);border:1px solid var(--border);border-radius:6px;
 }
-.chip .c-dot{width:5px;height:5px;border-radius:50%;background:var(--magenta)}
+.chip .c-dot{width:5px;height:5px;border-radius:50%;background:var(--accent)}
 
 /* --- Section label --- */
-.section-head{margin:44px 0 16px}
-.section-label{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:1px;color:var(--fg-mute)}
-.section-label .slash{color:var(--cyan);margin-right:6px}
+.section-head{margin:72px 0 16px}
+.section-label{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0;color:var(--fg-mute)}
+.section-label .slash{color:var(--accent);margin-right:6px}
 
 /* --- About --- */
-.about{font-size:15px;font-weight:500;line-height:1.8;color:var(--fg-dim);letter-spacing:-0.2px;max-width:520px}
+.about{font-size:17px;font-weight:500;line-height:1.82;color:var(--fg-dim);letter-spacing:0;max-width:720px}
 .about p+p{margin-top:14px}
 .about strong{color:var(--fg);font-weight:700}
 
 /* --- Link cards --- */
 .cta-card{
-  margin-top:12px;padding:20px 22px;background:var(--bg-elev);border:1px solid var(--border);border-radius:12px;
+  margin-top:12px;padding:22px 24px;background:var(--bg-elev);border:1px solid var(--border);border-radius:8px;
   display:flex;align-items:center;gap:16px;flex-wrap:wrap;text-decoration:none;color:inherit;
   transition:border-color 0.2s, transform 0.2s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.2s;
 }
-.cta-card:hover{transform:translateY(-1px);border-color:var(--magenta);box-shadow:0 0 0 1px rgba(255,0,170,0.25),0 8px 26px rgba(0,0,0,0.5)}
+.cta-card:hover{transform:translateY(-1px);border-color:var(--accent);box-shadow:0 10px 24px rgba(17,17,17,0.08)}
 .cta-text{flex:1;min-width:200px}
-.cta-title{font-size:16px;font-weight:700;color:var(--fg);letter-spacing:-0.3px;line-height:1.35}
-.cta-sub{margin-top:5px;font-family:var(--mono);font-size:11.5px;color:var(--fg-mute);letter-spacing:-0.1px;line-height:1.5}
-.cta-arrow{font-family:var(--mono);font-size:17px;color:var(--magenta);font-weight:500;transition:transform 0.2s}
+.cta-title{font-size:18px;font-weight:700;color:var(--fg);letter-spacing:0;line-height:1.35}
+.cta-sub{margin-top:5px;font-family:var(--mono);font-size:11.5px;color:var(--fg-mute);letter-spacing:0;line-height:1.5}
+.cta-arrow{font-family:var(--mono);font-size:17px;color:var(--accent);font-weight:500;transition:transform 0.2s}
 .cta-card:hover .cta-arrow{transform:translate(2px,-2px)}
 
 @media (max-width:480px){
-  .wrap{padding:48px 20px 80px}
-  .name-kr{font-size:35px;letter-spacing:-1.3px}
+  .wrap{padding:56px 20px 80px}
+  .hero{min-height:0;padding:56px 0 48px}
+  .name-kr{font-size:44px;letter-spacing:0}
   .tagline{font-size:15px}
   .avatar{width:96px;height:96px}
 }
@@ -121,7 +121,7 @@ body{min-height:100vh}
     <h1 class="name-kr">강대종</h1>
     <div class="name-en">DAEJONG KANG</div>
     <div class="role">마이너스베타스튜디오 대표 · 1인 빌더</div>
-    <p class="tagline">식품생물공학을 전공한 <em>비(非)개발자</em>.<br/>AI와 함께 앱·웹 서비스·자동화 실험을 직접 만들고 운영합니다.</p>
+    <p class="tagline">식품생물공학을 전공한 <em>비(非)개발자</em>.<br/>AI와 함께 앱·웹 서비스·자동화 도구를 직접 만들고 운영합니다.</p>
     <div class="meta-row">
       <span class="chip"><span class="c-dot"></span>Seoul · 대한민국</span>
       <span class="chip"><span class="c-dot"></span>경기대학교 식품생물공학과</span>
