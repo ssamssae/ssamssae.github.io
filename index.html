@@ -35,18 +35,32 @@
 html,body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased}
 body{min-height:100vh}
 
-.wrap{max-width:1120px;margin:0 auto;padding:84px 24px 112px}
+.wrap{max-width:1120px;margin:0 auto;padding:64px 24px 112px}
 
 /* --- Hero --- */
-.hero{min-height:520px;padding:80px 2px 64px;border-bottom:1px solid var(--border);margin-bottom:8px}
-.avatar{
-  width:112px;height:112px;border-radius:50%;object-fit:cover;object-position:center 26%;
-  border:1px solid var(--border);box-shadow:0 0 0 4px var(--bg-elev);
-  display:block;background:var(--bg-elev);
+.hero{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:56px;align-items:end;
+  min-height:620px;padding:72px 2px 64px;border-bottom:1px solid var(--border);
 }
-.hero-top{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:24px}
-.namecard-link{display:block;flex:0 1 330px;line-height:0}
-.namecard{width:100%;height:auto;border-radius:8px;border:1px solid var(--border);display:block}
+.hero-copy{min-width:0}
+.hero-media{display:flex;flex-direction:column;gap:14px;min-width:0}
+.portrait{
+  position:relative;overflow:hidden;border:1px solid var(--border);border-radius:10px;background:var(--bg-elev);
+  aspect-ratio:4/5;
+}
+.avatar{
+  width:100%;height:100%;object-fit:cover;object-position:center 23%;display:block;
+}
+.portrait-label{
+  position:absolute;left:14px;right:14px;bottom:14px;
+  display:flex;justify-content:space-between;gap:10px;
+  border:1px solid rgba(255,255,255,0.45);border-radius:8px;
+  background:rgba(255,255,255,0.78);backdrop-filter:blur(14px);
+  color:var(--fg);font-family:var(--mono);font-size:11px;font-weight:600;
+  padding:9px 10px;
+}
+.namecard-link{display:block;line-height:0;text-decoration:none}
+.namecard{width:100%;height:auto;border-radius:8px;border:1px solid var(--border);display:block;background:var(--bg-elev)}
 .eyebrow{
   display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);
   font-size:11px;font-weight:600;letter-spacing:0;
@@ -59,7 +73,7 @@ body{min-height:100vh}
 .name-en{margin-top:8px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0;color:var(--fg-mute)}
 .role{margin-top:18px;font-size:15px;font-weight:700;letter-spacing:0;color:var(--fg)}
 .tagline{
-  margin-top:22px;font-size:20px;font-weight:500;line-height:1.72;color:var(--fg-dim);letter-spacing:0;max-width:680px;
+  margin-top:22px;font-size:20px;font-weight:500;line-height:1.72;color:var(--fg-dim);letter-spacing:0;max-width:720px;
 }
 .tagline em{font-style:normal;color:var(--accent);font-weight:700}
 
@@ -71,6 +85,15 @@ body{min-height:100vh}
 }
 .chip .c-dot{width:5px;height:5px;border-radius:50%;background:var(--accent)}
 
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;
+  margin-top:34px;border-top:1px solid var(--fg);border-bottom:1px solid var(--border);
+}
+.hero-stats div{min-width:0;border-right:1px solid var(--border);padding:16px 18px}
+.hero-stats div:last-child{border-right:0}
+.hero-stats dt{color:var(--fg-mute);font-size:12px;font-weight:600;margin-bottom:18px}
+.hero-stats dd{color:var(--fg);font-family:var(--mono);font-size:14px;font-weight:600;line-height:1.5}
+
 /* --- Section label --- */
 .section-head{margin:72px 0 16px}
 .section-label{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0;color:var(--fg-mute)}
@@ -80,6 +103,31 @@ body{min-height:100vh}
 .about{font-size:17px;font-weight:500;line-height:1.82;color:var(--fg-dim);letter-spacing:0;max-width:720px}
 .about p+p{margin-top:14px}
 .about strong{color:var(--fg);font-weight:700}
+
+.profile-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.profile-card{
+  min-width:0;border:1px solid var(--border);border-radius:8px;background:var(--bg);padding:20px 20px 22px;
+}
+.profile-card span{display:block;color:var(--fg-mute);font-family:var(--mono);font-size:12px;font-weight:600;margin-bottom:30px}
+.profile-card strong{display:block;color:var(--fg);font-size:20px;line-height:1.35;margin-bottom:10px;word-break:keep-all}
+.profile-card p{color:var(--fg-dim);font-size:14px;line-height:1.7;word-break:keep-all}
+
+.work-grid{display:grid;grid-template-columns:1.08fr 0.96fr 0.96fr;gap:14px}
+.work-card{
+  display:flex;min-height:230px;flex-direction:column;border:1px solid var(--border);border-radius:8px;
+  background:var(--bg);color:inherit;padding:22px;text-decoration:none;
+  transition:background 0.16s,border-color 0.16s,transform 0.16s;
+}
+.work-card:hover{background:var(--bg-elev);border-color:var(--accent);color:inherit;text-decoration:none;transform:translateY(-1px)}
+.work-card.primary{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.work-card.primary .work-topline,.work-card.primary p,.work-card.primary .read-more{color:rgba(255,255,255,0.72)}
+.work-topline{
+  display:flex;flex-direction:column;gap:48px;margin-bottom:14px;color:var(--fg-mute);
+  font-family:var(--mono);font-size:12px;font-weight:600;
+}
+.work-card strong{color:inherit;font-size:22px;line-height:1.32;margin-bottom:12px;word-break:keep-all}
+.work-card p{color:var(--fg-dim);font-size:14px;line-height:1.7;word-break:keep-all}
+.read-more{margin-top:auto;color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600}
 
 /* --- Link cards --- */
 .cta-card{
@@ -96,10 +144,20 @@ body{min-height:100vh}
 
 @media (max-width:480px){
   .wrap{padding:56px 20px 80px}
-  .hero{min-height:0;padding:56px 0 48px}
+  .hero{grid-template-columns:1fr;min-height:0;padding:56px 0 48px}
+  .hero-media{order:-1}
   .name-kr{font-size:44px;letter-spacing:0}
   .tagline{font-size:15px}
-  .avatar{width:96px;height:96px}
+  .hero-stats,.profile-grid,.work-grid{grid-template-columns:1fr}
+  .hero-stats div{border-right:0;border-bottom:1px solid var(--border)}
+  .hero-stats div:last-child{border-bottom:0}
+  .work-card{min-height:210px}
+}
+
+@media (min-width:481px) and (max-width:860px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-media{order:-1;max-width:420px}
+  .profile-grid,.work-grid{grid-template-columns:1fr}
 }
 
 /* reveal on load */
@@ -113,19 +171,41 @@ body{min-height:100vh}
 
 <div class="wrap">
   <section class="hero reveal">
-    <div class="hero-top">
-      <img class="avatar" src="./profile.jpg" alt="강대종 프로필 사진"/>
-      <a class="namecard-link" href="./namecard.png" target="_blank" rel="noopener"><img class="namecard" src="./namecard.png" alt="강대종 · 마이너스베타스튜디오 명함"/></a>
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="dot"></span>FOUNDER · 마이너스베타스튜디오</div>
+      <h1 class="name-kr">강대종</h1>
+      <div class="name-en">DAEJONG KANG</div>
+      <div class="role">마이너스베타스튜디오 대표 · 1인 빌더</div>
+      <p class="tagline">식품생물공학을 전공한 <em>비(非)개발자</em>에서 출발했습니다. 지금은 AI와 함께 앱, 웹 서비스, 자동화 시스템을 직접 만들고 운영합니다.</p>
+      <div class="meta-row">
+        <span class="chip"><span class="c-dot"></span>Seoul · 대한민국</span>
+        <span class="chip"><span class="c-dot"></span>경기대학교 식품생물공학과</span>
+        <span class="chip"><span class="c-dot"></span>비개발자 출신 · AI와 함께</span>
+      </div>
+      <dl class="hero-stats" aria-label="대표 소개 요약">
+        <div>
+          <dt>출발점</dt>
+          <dd>식품생물공학</dd>
+        </div>
+        <div>
+          <dt>현재</dt>
+          <dd>1인 앱 개발</dd>
+        </div>
+        <div>
+          <dt>방식</dt>
+          <dd>작게 만들고 기록</dd>
+        </div>
+      </dl>
     </div>
-    <div class="eyebrow"><span class="dot"></span>FOUNDER · 마이너스베타스튜디오</div>
-    <h1 class="name-kr">강대종</h1>
-    <div class="name-en">DAEJONG KANG</div>
-    <div class="role">마이너스베타스튜디오 대표 · 1인 빌더</div>
-    <p class="tagline">식품생물공학을 전공한 <em>비(非)개발자</em>.<br/>AI와 함께 앱·웹 서비스·자동화 도구를 직접 만들고 운영합니다.</p>
-    <div class="meta-row">
-      <span class="chip"><span class="c-dot"></span>Seoul · 대한민국</span>
-      <span class="chip"><span class="c-dot"></span>경기대학교 식품생물공학과</span>
-      <span class="chip"><span class="c-dot"></span>비개발자 출신 · AI와 함께</span>
+    <div class="hero-media">
+      <div class="portrait">
+        <img class="avatar" src="./profile.jpg" alt="강대종 프로필 사진"/>
+        <div class="portrait-label">
+          <span>MINUSBETA</span>
+          <span>FOUNDER</span>
+        </div>
+      </div>
+      <a class="namecard-link" href="./namecard.png" target="_blank" rel="noopener"><img class="namecard" src="./namecard.png" alt="강대종 · 마이너스베타스튜디오 명함"/></a>
     </div>
   </section>
 
@@ -134,6 +214,47 @@ body{min-height:100vh}
     <p>2011년 경기대학교 <strong>식품생물공학과</strong>를 졸업했습니다. 원래 개발자가 아니었지만, 필요한 문제를 직접 풀어보자는 생각으로 AI와 함께 제품을 만들기 시작했습니다.</p>
     <p>지금은 모바일 앱, 웹 서비스, 자동화 도구를 <strong>작게 만들고 빠르게 운영해보는 1인 빌더이자 마이너스베타스튜디오 대표</strong>입니다. 한줄일기·메모요 같은 앱부터 웹 기반 실험과 개인 자동화 시스템까지 직접 만들고, 그 과정을 작업장에 모아 기록합니다.</p>
   </div>
+
+  <div class="section-head reveal"><span class="section-label"><span class="slash">//</span>What I build</span></div>
+  <section class="work-grid reveal" aria-label="현재 작업">
+    <a class="work-card primary" href="https://work.kangdaejong.com/products/" target="_blank" rel="noopener">
+      <span class="work-topline"><span>01</span><span>PRODUCTS</span></span>
+      <strong>작은 앱을 직접 만들고 운영합니다.</strong>
+      <p>한줄일기, 메모요처럼 내가 실제로 쓰고 개선할 수 있는 문제부터 제품으로 만듭니다.</p>
+      <span class="read-more">제품 보기 ↗</span>
+    </a>
+    <a class="work-card" href="https://work.kangdaejong.com/worklog/" target="_blank" rel="noopener">
+      <span class="work-topline"><span>02</span><span>WORKLOG</span></span>
+      <strong>과정을 매일 남깁니다.</strong>
+      <p>출시, 실패, 자동화, 의사결정을 기록으로 남겨 다음 작업의 속도를 올립니다.</p>
+      <span class="read-more">작업일지 ↗</span>
+    </a>
+    <a class="work-card" href="https://work.kangdaejong.com/system/" target="_blank" rel="noopener">
+      <span class="work-topline"><span>03</span><span>SYSTEM</span></span>
+      <strong>AI와 함께 일하는 시스템을 만듭니다.</strong>
+      <p>Claude, Codex, 로컬 장비, 자동화를 엮어 혼자서도 여러 작업을 굴릴 수 있게 합니다.</p>
+      <span class="read-more">시스템 ↗</span>
+    </a>
+  </section>
+
+  <div class="section-head reveal"><span class="section-label"><span class="slash">//</span>Principles</span></div>
+  <section class="profile-grid reveal" aria-label="작업 원칙">
+    <div class="profile-card">
+      <span>01</span>
+      <strong>직접 만든다</strong>
+      <p>기획, 디자인, 개발, 운영을 한 흐름으로 보며 필요한 만큼 직접 배웁니다.</p>
+    </div>
+    <div class="profile-card">
+      <span>02</span>
+      <strong>작게 출시한다</strong>
+      <p>큰 선언보다 작은 제품과 검증 가능한 결과를 먼저 밖으로 내보냅니다.</p>
+    </div>
+    <div class="profile-card">
+      <span>03</span>
+      <strong>기록으로 남긴다</strong>
+      <p>성공한 길뿐 아니라 막힌 길도 남겨 다음 작업의 재료로 씁니다.</p>
+    </div>
+  </section>
 
   <div class="section-head reveal"><span class="section-label"><span class="slash">//</span>기록 · 포트폴리오</span></div>
   <a class="cta-card reveal" href="https://work.kangdaejong.com/" target="_blank" rel="noopener">

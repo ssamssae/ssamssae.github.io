@@ -1,19 +1,20 @@
 # ssamssae.github.io
 
-강대종 (DAEJONG) 개인 랜딩 페이지.
+강대종 (DAEJONG KANG) 대표소개 페이지.
 
 Live: https://ssamssae.github.io/
 
 ## 구성
 
 - 단일 `index.html` — GitHub Pages 로 그대로 서빙
-- 다크 dawn-sky 그라디언트 + glass 카드 (한줄일기 앱의 A2 톤을 웹으로 이식)
+- 공통 `<mb-header>` / `<mb-footer>` 로 회사홈·작업장과 헤더/푸터 통일
+- 화이트 + 모노크롬 + 블루 CTA 톤
 - Pretendard Variable 폰트 (CDN)
-- JS 는 reveal stagger + 별 parallax 뿐
+- JS 는 reveal stagger 뿐
 
 ## 관련
 
-- `daejong-page` (포트폴리오 본체): https://ssamssae.github.io/daejong-page/
+- `daejong-page` (작업장): https://work.kangdaejong.com/
 - 운영 앱 repo: `simple-memo-app`, `hanjul`, `review_radar`
 
 ## 수정 사이클
