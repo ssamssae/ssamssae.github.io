@@ -28,9 +28,7 @@ const checks = [
   {
     label: "founder CTA points work root as 작업장",
     ok:
-      /<a class="cta-card reveal" href="https:\/\/work\.kangdaejong\.com\/"[^>]*>/.test(html) &&
-      /<div class="cta-title">작업장<\/div>/.test(html) &&
-      /제품·작업일지·뉴스레터·인사이트 아카이브/.test(html),
+      /<a href="https:\/\/work\.kangdaejong\.com\/">\s*<span>WORKSPACE<\/span>\s*<strong>제품, 작업일지, 뉴스레터 허브<\/strong>\s*<em>작업장 →<\/em>\s*<\/a>/.test(html),
   },
   {
     label: "founder page no longer labels work root as 작업일지",
