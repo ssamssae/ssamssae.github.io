@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="강대종 · 마이너스베타스튜디오 대표. 비개발자 출신으로 AI와 함께 앱·웹 서비스·자동화 도구를 직접 만들고 운영하는 1인 개발자."/>
+<meta name="description" content="강대종 · 마이너스베타스튜디오 대표. 비개발자 출신으로 생활 앱, 웹 서비스, 공개 자동화 도구를 직접 만들고 운영하는 1인 개발자."/>
 <meta property="og:title" content="강대종 · 마이너스베타스튜디오 대표"/>
-<meta property="og:description" content="비개발자 출신 1인 개발자. AI와 함께 앱·웹 서비스·자동화 도구를 작게 자주 만들고 운영합니다."/>
+<meta property="og:description" content="비개발자 출신 1인 개발자. 마이너스베타스튜디오에서 앱, 웹 서비스, 자동화 도구를 작게 만들고 오래 운영합니다."/>
 <meta property="og:type" content="profile"/>
 <meta property="og:url" content="https://founder.kangdaejong.com/"/>
 <meta property="og:image" content="https://founder.kangdaejong.com/profile.jpg"/>
@@ -20,251 +20,368 @@
 <style>
 :root{
   --bg:#ffffff;
-  --bg-elev:#f7f7f7;
-  --border:#dedede;
-  --border-soft:#eeeeee;
+  --bg-soft:#f6f6f3;
+  --bg-ink:#111111;
   --fg:#111111;
-  --fg-dim:#4f4f4f;
+  --fg-dim:#4c4c4c;
   --fg-mute:#777777;
+  --border:#deded8;
+  --border-strong:#111111;
+  --blue:#2563eb;
   --accent:#2563eb;
-  --accent-dim:#1748b8;
+  --green:#177245;
+  --red:#b42318;
+  --sand:#e9e4d8;
+  --shadow:0 18px 44px rgba(17,17,17,0.08);
   --sans:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,sans-serif;
   --mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scrollbar-gutter:stable}
 html,body{background:var(--bg);color:var(--fg);font-family:var(--sans);-webkit-font-smoothing:antialiased}
-body{min-height:100vh}
+body{min-height:100vh;line-height:1.65}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--blue)}
+img{max-width:100%;display:block}
 
-.wrap{max-width:1120px;margin:0 auto;padding:64px 24px 112px}
+.site-shell{width:min(calc(100% - 48px),1180px);margin:0 auto;padding:48px 0 92px}
+.eyebrow{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--fg-mute);text-transform:uppercase}
+.text-link{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12px;font-weight:700;color:var(--blue)}
+.button-row{display:flex;flex-wrap:wrap;gap:10px}
+.button{
+  display:inline-flex;align-items:center;justify-content:center;min-height:42px;
+  border:1px solid var(--border-strong);border-radius:7px;padding:9px 14px;
+  font-family:var(--mono);font-size:12px;font-weight:700;background:var(--bg);color:var(--fg);
+  transition:background .16s,color .16s,border-color .16s,transform .16s;
+}
+.button:hover{transform:translateY(-1px);border-color:var(--blue);color:var(--blue)}
+.button.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.button.primary:hover{background:var(--blue);border-color:var(--blue);color:#fff}
 
-/* --- Hero --- */
 .hero{
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:56px;align-items:end;
-  min-height:620px;padding:72px 2px 64px;border-bottom:1px solid var(--border);
+  min-height:620px;display:grid;align-items:center;padding:28px 0 56px;border-bottom:1px solid var(--border);
+}
+.hero-inner{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(310px,420px);gap:54px;align-items:center;
 }
 .hero-copy{min-width:0}
-.hero-media{display:flex;flex-direction:column;gap:14px;min-width:0}
-.portrait{
-  position:relative;overflow:hidden;border:1px solid var(--border);border-radius:10px;background:var(--bg-elev);
-  aspect-ratio:4/5;
+.hero-copy h1{font-size:88px;line-height:1.02;font-weight:800;letter-spacing:0;margin-top:16px}
+.name-en{margin-top:8px;font-family:var(--mono);font-size:13px;color:var(--fg-mute);font-weight:500}
+.role{margin-top:22px;font-size:16px;font-weight:800;color:var(--fg)}
+.lead{margin-top:20px;max-width:690px;font-size:20px;line-height:1.74;color:var(--fg-dim);font-weight:500}
+.lead strong{color:var(--fg);font-weight:800}
+.hero-actions{margin-top:28px}
+.hero-media{display:grid;gap:14px}
+.portrait-frame{
+  position:relative;overflow:hidden;border:1px solid var(--border-strong);border-radius:8px;background:var(--bg-soft);
+  aspect-ratio:4/5;box-shadow:var(--shadow);
 }
-.avatar{
-  width:100%;height:100%;object-fit:cover;object-position:center 23%;display:block;
+.portrait-image{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.portrait-caption{
+  position:absolute;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;gap:12px;
+  padding:9px 10px;border:1px solid rgba(255,255,255,.58);border-radius:7px;
+  background:rgba(255,255,255,.82);backdrop-filter:blur(14px);
+  font-family:var(--mono);font-size:11px;font-weight:700;color:var(--fg);
 }
-.portrait-label{
-  position:absolute;left:14px;right:14px;bottom:14px;
-  display:flex;justify-content:space-between;gap:10px;
-  border:1px solid rgba(255,255,255,0.45);border-radius:8px;
-  background:rgba(255,255,255,0.78);backdrop-filter:blur(14px);
-  color:var(--fg);font-family:var(--mono);font-size:11px;font-weight:600;
-  padding:9px 10px;
-}
-.namecard-link{display:block;line-height:0;text-decoration:none}
-.namecard{width:100%;height:auto;border-radius:8px;border:1px solid var(--border);display:block;background:var(--bg-elev)}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);
-  font-size:11px;font-weight:600;letter-spacing:0;
-  color:var(--accent);text-transform:uppercase;margin-bottom:16px;
-  padding:6px 12px;background:#eef4ff;border:1px solid #c9dcff;border-radius:6px;
-}
-.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2.6s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
-.name-kr{font-size:clamp(48px,7vw,88px);font-weight:800;letter-spacing:0;line-height:1.02;color:var(--fg)}
-.name-en{margin-top:8px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0;color:var(--fg-mute)}
-.role{margin-top:18px;font-size:15px;font-weight:700;letter-spacing:0;color:var(--fg)}
-.tagline{
-  margin-top:22px;font-size:20px;font-weight:500;line-height:1.72;color:var(--fg-dim);letter-spacing:0;max-width:720px;
-}
-.tagline em{font-style:normal;color:var(--accent);font-weight:700}
+.namecard-link{border-radius:8px;line-height:0}
+.namecard-image{width:100%;height:auto;border:1px solid var(--border);border-radius:8px;background:var(--bg-soft)}
 
-.meta-row{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
-.chip{
-  display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);
-  padding:6px 12px;font-size:11.5px;font-weight:400;letter-spacing:0;
-  color:var(--fg-mute);background:var(--bg-elev);border:1px solid var(--border);border-radius:6px;
+.proof-strip{border-bottom:1px solid var(--border);margin-bottom:78px}
+.proof-inner{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.proof-inner div{padding:22px 22px 24px;border-right:1px solid var(--border)}
+.proof-inner div:first-child{border-left:1px solid var(--border)}
+.proof-inner span{display:block;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--fg-mute);margin-bottom:20px}
+.proof-inner strong{display:block;font-size:30px;line-height:1.1;font-weight:800;color:var(--fg);margin-bottom:10px}
+.proof-inner p{font-size:14px;line-height:1.55;color:var(--fg-dim);word-break:keep-all}
+
+.page-shell{display:grid;gap:84px}
+.section-head{display:grid;grid-template-columns:minmax(190px,260px) minmax(0,1fr);gap:28px;margin-bottom:26px}
+.section-head h2{font-size:34px;line-height:1.18;letter-spacing:0;font-weight:800;word-break:keep-all}
+.section-head p:last-child{max-width:560px;color:var(--fg-dim);font-size:16px;line-height:1.74;word-break:keep-all}
+
+.identity-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.identity-copy{font-size:18px;line-height:1.84;color:var(--fg-dim);font-weight:500}
+.identity-copy p+p{margin-top:16px}
+.identity-copy strong{color:var(--fg);font-weight:800}
+.identity-panel{
+  border:1px solid var(--border);border-radius:8px;background:var(--bg-soft);padding:24px;
+  display:grid;gap:18px;align-content:start;
 }
-.chip .c-dot{width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.identity-panel div{display:grid;grid-template-columns:86px 1fr;gap:16px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.identity-panel div:last-child{border-bottom:0;padding-bottom:0}
+.identity-panel dt{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--fg-mute)}
+.identity-panel dd{font-size:15px;font-weight:700;color:var(--fg);word-break:keep-all}
 
-.hero-stats{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;
-  margin-top:34px;border-top:1px solid var(--fg);border-bottom:1px solid var(--border);
+.focus-list{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.focus-list li{
+  min-height:250px;border:1px solid var(--border);border-radius:8px;padding:22px;display:flex;flex-direction:column;background:var(--bg);
 }
-.hero-stats div{min-width:0;border-right:1px solid var(--border);padding:16px 18px}
-.hero-stats div:last-child{border-right:0}
-.hero-stats dt{color:var(--fg-mute);font-size:12px;font-weight:600;margin-bottom:18px}
-.hero-stats dd{color:var(--fg);font-family:var(--mono);font-size:14px;font-weight:600;line-height:1.5}
+.focus-list span{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--fg-mute);margin-bottom:auto}
+.focus-list strong{display:block;font-size:22px;line-height:1.34;font-weight:800;margin-top:42px;margin-bottom:12px;word-break:keep-all}
+.focus-list p{color:var(--fg-dim);font-size:14px;line-height:1.72;word-break:keep-all}
+.focus-list li:nth-child(1){border-top-color:var(--blue)}
+.focus-list li:nth-child(2){border-top-color:var(--green)}
+.focus-list li:nth-child(3){border-top-color:var(--red)}
 
-/* --- Section label --- */
-.section-head{margin:72px 0 16px}
-.section-label{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0;color:var(--fg-mute)}
-.section-label .slash{color:var(--accent);margin-right:6px}
+.loop-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--border-strong);border-bottom:1px solid var(--border)}
+.loop-list article{padding:24px 20px 28px;border-right:1px solid var(--border);min-height:230px}
+.loop-list article:last-child{border-right:0}
+.loop-list span{display:block;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--fg-mute);margin-bottom:38px}
+.loop-list strong{display:block;font-size:20px;line-height:1.35;font-weight:800;margin-bottom:12px;word-break:keep-all}
+.loop-list p{font-size:14px;line-height:1.72;color:var(--fg-dim);word-break:keep-all}
 
-/* --- About --- */
-.about{font-size:17px;font-weight:500;line-height:1.82;color:var(--fg-dim);letter-spacing:0;max-width:720px}
-.about p+p{margin-top:14px}
-.about strong{color:var(--fg);font-weight:700}
-
-.profile-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.profile-card{
-  min-width:0;border:1px solid var(--border);border-radius:8px;background:var(--bg);padding:20px 20px 22px;
+.product-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
+.product-card{
+  border:1px solid var(--border);border-radius:8px;background:var(--bg);padding:24px;min-height:220px;
+  display:flex;flex-direction:column;transition:border-color .16s,transform .16s,box-shadow .16s;
 }
-.profile-card span{display:block;color:var(--fg-mute);font-family:var(--mono);font-size:12px;font-weight:600;margin-bottom:30px}
-.profile-card strong{display:block;color:var(--fg);font-size:20px;line-height:1.35;margin-bottom:10px;word-break:keep-all}
-.profile-card p{color:var(--fg-dim);font-size:14px;line-height:1.7;word-break:keep-all}
+.product-card:hover{border-color:var(--blue);transform:translateY(-1px);box-shadow:var(--shadow);color:inherit}
+.product-card.primary{background:var(--fg);color:#fff;border-color:var(--fg)}
+.product-card.primary p,.product-card.primary span,.product-card.primary em{color:rgba(255,255,255,.72)}
+.product-card span{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--fg-mute);margin-bottom:32px}
+.product-card h3{font-size:24px;line-height:1.28;font-weight:800;margin-bottom:12px;word-break:keep-all}
+.product-card p{font-size:14px;line-height:1.72;color:var(--fg-dim);word-break:keep-all}
+.product-card em{margin-top:auto;font-family:var(--mono);font-size:12px;font-style:normal;font-weight:700;color:var(--blue)}
 
-.work-grid{display:grid;grid-template-columns:1.08fr 0.96fr 0.96fr;gap:14px}
-.work-card{
-  display:flex;min-height:230px;flex-direction:column;border:1px solid var(--border);border-radius:8px;
-  background:var(--bg);color:inherit;padding:22px;text-decoration:none;
-  transition:background 0.16s,border-color 0.16s,transform 0.16s;
+.connect-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.connect-list a{
+  border:1px solid var(--border);border-radius:8px;padding:20px 20px 22px;background:var(--bg-soft);
+  min-height:170px;display:flex;flex-direction:column;transition:border-color .16s,transform .16s,background .16s;
 }
-.work-card:hover{background:var(--bg-elev);border-color:var(--accent);color:inherit;text-decoration:none;transform:translateY(-1px)}
-.work-card.primary{background:var(--fg);border-color:var(--fg);color:var(--bg)}
-.work-card.primary .work-topline,.work-card.primary p,.work-card.primary .read-more{color:rgba(255,255,255,0.72)}
-.work-topline{
-  display:flex;flex-direction:column;gap:48px;margin-bottom:14px;color:var(--fg-mute);
-  font-family:var(--mono);font-size:12px;font-weight:600;
-}
-.work-card strong{color:inherit;font-size:22px;line-height:1.32;margin-bottom:12px;word-break:keep-all}
-.work-card p{color:var(--fg-dim);font-size:14px;line-height:1.7;word-break:keep-all}
-.read-more{margin-top:auto;color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600}
+.connect-list a:hover{border-color:var(--blue);background:#fff;transform:translateY(-1px);color:inherit}
+.connect-list span{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--fg-mute);margin-bottom:28px}
+.connect-list strong{font-size:18px;line-height:1.38;font-weight:800;word-break:keep-all}
+.connect-list em{margin-top:auto;font-family:var(--mono);font-size:12px;font-style:normal;color:var(--blue);font-weight:700}
 
-/* --- Link cards --- */
-.cta-card{
-  margin-top:12px;padding:22px 24px;background:var(--bg-elev);border:1px solid var(--border);border-radius:8px;
-  display:flex;align-items:center;gap:16px;flex-wrap:wrap;text-decoration:none;color:inherit;
-  transition:border-color 0.2s, transform 0.2s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.2s;
-}
-.cta-card:hover{transform:translateY(-1px);border-color:var(--accent);box-shadow:0 10px 24px rgba(17,17,17,0.08)}
-.cta-text{flex:1;min-width:200px}
-.cta-title{font-size:18px;font-weight:700;color:var(--fg);letter-spacing:0;line-height:1.35}
-.cta-sub{margin-top:5px;font-family:var(--mono);font-size:11.5px;color:var(--fg-mute);letter-spacing:0;line-height:1.5}
-.cta-arrow{font-family:var(--mono);font-size:17px;color:var(--accent);font-weight:500;transition:transform 0.2s}
-.cta-card:hover .cta-arrow{transform:translate(2px,-2px)}
-
-@media (max-width:480px){
-  .wrap{padding:56px 20px 80px}
-  .hero{grid-template-columns:1fr;min-height:0;padding:56px 0 48px}
-  .hero-media{order:-1}
-  .name-kr{font-size:44px;letter-spacing:0}
-  .tagline{font-size:15px}
-  .hero-stats,.profile-grid,.work-grid{grid-template-columns:1fr}
-  .hero-stats div{border-right:0;border-bottom:1px solid var(--border)}
-  .hero-stats div:last-child{border-bottom:0}
-  .work-card{min-height:210px}
-}
-
-@media (min-width:481px) and (max-width:860px){
-  .hero{grid-template-columns:1fr;min-height:0}
-  .hero-media{order:-1;max-width:420px}
-  .profile-grid,.work-grid{grid-template-columns:1fr}
-}
-
-/* reveal on load */
-.reveal{opacity:0;transform:translateY(10px);transition:opacity 0.5s ease, transform 0.5s cubic-bezier(0.2,0.8,0.2,1)}
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s cubic-bezier(.2,.8,.2,1)}
 .reveal.show{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .site-shell{width:min(calc(100% - 40px),720px);padding-top:34px}
+  .hero{min-height:0;padding:34px 0 46px}
+  .hero-inner,.identity-grid,.product-grid{grid-template-columns:1fr}
+  .hero-media{order:-1;max-width:430px}
+  .hero-copy h1{font-size:58px}
+  .lead{font-size:17px}
+  .proof-inner,.focus-list,.loop-list,.connect-list{grid-template-columns:1fr}
+  .proof-inner div,.proof-inner div:first-child{border-left:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .proof-inner div:last-child{border-bottom:0}
+  .section-head{grid-template-columns:1fr;gap:10px}
+  .section-head h2{font-size:28px}
+  .loop-list article{border-right:0;border-bottom:1px solid var(--border);min-height:190px}
+  .loop-list article:last-child{border-bottom:0}
+}
+@media (max-width:520px){
+  .site-shell{width:min(calc(100% - 32px),460px);padding-bottom:72px}
+  .hero-copy h1{font-size:46px}
+  .button-row{display:grid;grid-template-columns:1fr}
+  .button{width:100%}
+  .portrait-caption{font-size:10px}
+  .identity-panel div{grid-template-columns:1fr;gap:6px}
+}
 </style>
 </head>
 <body>
 
 <mb-header active="founder"></mb-header>
 
-<div class="wrap">
-  <section class="hero reveal">
-    <div class="hero-copy">
-      <div class="eyebrow"><span class="dot"></span>FOUNDER · 마이너스베타스튜디오</div>
-      <h1 class="name-kr">강대종</h1>
-      <div class="name-en">DAEJONG KANG</div>
-      <div class="role">마이너스베타스튜디오 대표 · 비개발자 출신 1인 개발자</div>
-      <p class="tagline">원래 개발자가 아니었습니다. 지금은 AI와 함께 앱, 웹 서비스, 자동화 시스템을 직접 만들고 운영하는 <em>1인 개발자</em>입니다.</p>
-      <div class="meta-row">
-        <span class="chip"><span class="c-dot"></span>Seoul · 대한민국</span>
-        <span class="chip"><span class="c-dot"></span>비개발자 출신</span>
-        <span class="chip"><span class="c-dot"></span>1인 개발 · AI와 함께</span>
-      </div>
-      <dl class="hero-stats" aria-label="대표 소개 요약">
-        <div>
-          <dt>출발점</dt>
-          <dd>비개발자</dd>
-        </div>
-        <div>
-          <dt>현재</dt>
-          <dd>1인 앱 개발</dd>
-        </div>
-        <div>
-          <dt>방식</dt>
-          <dd>작게 만들고 기록</dd>
-        </div>
-      </dl>
-    </div>
-    <div class="hero-media">
-      <div class="portrait">
-        <img class="avatar" src="./profile.jpg" alt="강대종 프로필 사진"/>
-        <div class="portrait-label">
-          <span>MINUSBETA</span>
-          <span>FOUNDER</span>
+<main class="site-shell">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">MINUS BETA STUDIO FOUNDER</p>
+        <h1 id="page-title">강대종</h1>
+        <p class="name-en">DAEJONG KANG</p>
+        <p class="role">마이너스베타스튜디오 대표 · 비개발자 출신 1인 개발자</p>
+        <p class="lead"><strong>작게 만들고, 오래 운영합니다.</strong> 생활 앱, 짧게 쓰는 웹 서비스, 공개 자동화 도구를 직접 만들고 검증하며 마이너스베타스튜디오를 운영합니다.</p>
+        <div class="button-row hero-actions" aria-label="주요 링크">
+          <a class="button primary" href="https://work.kangdaejong.com/products/">제품 보기</a>
+          <a class="button" href="https://kangdaejong.com/">회사홈</a>
+          <a class="button" href="https://work.kangdaejong.com/worklog/">작업일지</a>
         </div>
       </div>
-      <a class="namecard-link" href="./namecard.png" target="_blank" rel="noopener"><img class="namecard" src="./namecard.png" alt="강대종 · 마이너스베타스튜디오 명함"/></a>
+      <div class="hero-media">
+        <div class="portrait-frame">
+          <img class="portrait-image" src="./profile.jpg" alt="강대종 프로필 사진"/>
+          <div class="portrait-caption">
+            <span>FOUNDER</span>
+            <span>MINUSBETA</span>
+          </div>
+        </div>
+        <a class="namecard-link" href="./namecard.png" target="_blank" rel="noopener">
+          <img class="namecard-image" src="./namecard.png" alt="강대종 · 마이너스베타스튜디오 명함"/>
+        </a>
+      </div>
     </div>
   </section>
 
-  <div class="section-head reveal"><span class="section-label"><span class="slash">//</span>About</span></div>
-  <div class="about reveal">
-    <p>원래 개발자가 아니었습니다. 필요한 문제를 직접 풀어보자는 생각으로 AI와 함께 제품을 만들기 시작했고, 이제는 작은 앱과 웹 서비스를 직접 만들고 운영합니다.</p>
-    <p>지금은 모바일 앱, 웹 서비스, 자동화 도구를 <strong>작게 만들고 빠르게 운영해보는 비개발자 출신 1인 개발자이자 마이너스베타스튜디오 대표</strong>입니다. 한줄일기·메모요 같은 앱부터 웹 기반 실험과 개인 자동화 시스템까지 직접 만들고, 그 과정을 작업장에 모아 기록합니다.</p>
+  <section class="proof-strip" aria-label="대표 소개 요약">
+    <div class="proof-inner">
+      <div>
+        <span>LIVE APPS</span>
+        <strong>4</strong>
+        <p>출시 후 직접 운영 중인 모바일 앱.</p>
+      </div>
+      <div>
+        <span>WORKLOG</span>
+        <strong>매일</strong>
+        <p>작업 과정과 의사결정을 공개 기록으로 남깁니다.</p>
+      </div>
+      <div>
+        <span>OPEN TOOLS</span>
+        <strong>2</strong>
+        <p>실제 운영에서 쓰는 자동화 브릿지를 공개합니다.</p>
+      </div>
+      <div>
+        <span>STUDIO</span>
+        <strong>1인</strong>
+        <p>기획, 개발, 출시, 고객응대까지 한 흐름으로 봅니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-shell">
+    <section class="identity-section reveal" aria-labelledby="identity-title">
+      <div class="section-head">
+        <p class="eyebrow">IDENTITY</p>
+        <div>
+          <h2 id="identity-title">비개발자에서, 직접 만드는 운영자로.</h2>
+          <p>거대한 선언보다 실제로 배포되는 작은 도구를 먼저 봅니다.</p>
+        </div>
+      </div>
+      <div class="identity-grid">
+        <div class="identity-copy">
+          <p>원래 개발자가 아니었습니다. 필요한 문제를 직접 풀어보자는 생각으로 AI와 함께 제품을 만들기 시작했고, 지금은 마이너스베타스튜디오의 앱과 웹 서비스를 직접 운영합니다.</p>
+          <p><strong>혼자 만들지만 혼자만 보지 않습니다.</strong> 제품은 출시 상태로, 과정은 작업일지로, 도구는 공개 저장소로 남겨 다음 개선의 근거를 만듭니다.</p>
+        </div>
+        <dl class="identity-panel">
+          <div>
+            <dt>출발점</dt>
+            <dd>비개발자 출신</dd>
+          </div>
+          <div>
+            <dt>현재</dt>
+            <dd>마이너스베타스튜디오 대표</dd>
+          </div>
+          <div>
+            <dt>방식</dt>
+            <dd>앱 · 웹 · 자동화 도구를 작게 만들고 검증</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="focus-section reveal" aria-labelledby="focus-title">
+      <div class="section-head">
+        <p class="eyebrow">WHAT I BUILD</p>
+        <div>
+          <h2 id="focus-title">하는 일</h2>
+          <p>생활에 가까운 문제를 제품으로 만들고, 운영에서 생기는 반복은 자동화로 줄입니다.</p>
+        </div>
+      </div>
+      <ol class="focus-list">
+        <li>
+          <span>01</span>
+          <strong>생활 앱</strong>
+          <p>메모, 일기, 복약, 정산처럼 매일 반복되는 일을 빠르게 처리하는 앱을 만듭니다.</p>
+        </li>
+        <li>
+          <span>02</span>
+          <strong>작업장 웹</strong>
+          <p>제품, 작업일지, 뉴스레터, 인사이트를 공개해 만드는 과정과 결과를 같이 남깁니다.</p>
+        </li>
+        <li>
+          <span>03</span>
+          <strong>운영 자동화</strong>
+          <p>AI 에이전트와 작업 노드로 반복 업무를 줄이고, 검증이 필요한 지점은 기록으로 묶습니다.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="loop-section reveal" aria-labelledby="loop-title">
+      <div class="section-head">
+        <p class="eyebrow">OPERATING LOOP</p>
+        <div>
+          <h2 id="loop-title">만드는 방식</h2>
+          <p>작게 만들고, 빠르게 공개하고, 기록을 바탕으로 다시 줄입니다.</p>
+        </div>
+      </div>
+      <div class="loop-list">
+        <article>
+          <span>BUILD</span>
+          <strong>작게 만든다</strong>
+          <p>한 번에 큰 제품보다 문제 하나를 해결하는 단위로 시작합니다.</p>
+        </article>
+        <article>
+          <span>SHIP</span>
+          <strong>바로 내보낸다</strong>
+          <p>앱스토어, 웹, 공개 저장소처럼 실제 사용 가능한 형태로 배포합니다.</p>
+        </article>
+        <article>
+          <span>WATCH</span>
+          <strong>계속 본다</strong>
+          <p>테스터 피드백, 작업일지, 오류 로그를 다음 수정의 근거로 씁니다.</p>
+        </article>
+        <article>
+          <span>REFINE</span>
+          <strong>덜어낸다</strong>
+          <p>기능을 늘리기보다 흐름을 짧게 만들고 오래 남길 것만 남깁니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="products-section reveal" aria-labelledby="products-title">
+      <div class="section-head">
+        <p class="eyebrow">CURRENT WORK</p>
+        <div>
+          <h2 id="products-title">대표 작업</h2>
+          <p>출시된 앱과 공개 도구, 그리고 매일 남기는 기록으로 작업의 맥락을 확인할 수 있습니다.</p>
+        </div>
+      </div>
+      <div class="product-grid">
+        <a class="product-card primary" href="https://work.kangdaejong.com/products/">
+          <span>PRODUCTS</span>
+          <h3>출시 앱과 공개 도구</h3>
+          <p>메모요, 한줄일기, 더치페이 계산기, 약먹자와 자동화 브릿지까지 현재 공개된 제품을 모았습니다.</p>
+          <em>제품 보기 →</em>
+        </a>
+        <a class="product-card" href="https://work.kangdaejong.com/worklog/">
+          <span>WORKLOG</span>
+          <h3>만드는 과정의 기록</h3>
+          <p>출시, 수정, 막힌 지점, 복구 과정을 매일 남겨 다음 작업의 기준으로 씁니다.</p>
+          <em>작업일지 →</em>
+        </a>
+      </div>
+    </section>
+
+    <section class="connect-section reveal" aria-labelledby="connect-title">
+      <div class="section-head">
+        <p class="eyebrow">CONNECT</p>
+        <div>
+          <h2 id="connect-title">연결</h2>
+          <p>회사 정보는 회사홈에서, 작업의 세부 흐름은 작업장에서 확인할 수 있습니다.</p>
+        </div>
+      </div>
+      <div class="connect-list">
+        <a href="https://kangdaejong.com/">
+          <span>COMPANY</span>
+          <strong>마이너스베타스튜디오 회사홈</strong>
+          <em>회사홈 →</em>
+        </a>
+        <a href="https://work.kangdaejong.com/">
+          <span>WORKSPACE</span>
+          <strong>제품, 작업일지, 뉴스레터 허브</strong>
+          <em>작업장 →</em>
+        </a>
+        <a href="https://daejongkang.substack.com">
+          <span>NEWSLETTER</span>
+          <strong>빌드와 운영에 대한 긴 기록</strong>
+          <em>뉴스레터 →</em>
+        </a>
+      </div>
+    </section>
   </div>
-
-  <div class="section-head reveal"><span class="section-label"><span class="slash">//</span>What I build</span></div>
-  <section class="work-grid reveal" aria-label="현재 작업">
-    <a class="work-card primary" href="https://work.kangdaejong.com/products/" target="_blank" rel="noopener">
-      <span class="work-topline"><span>01</span><span>PRODUCTS</span></span>
-      <strong>작은 앱을 직접 만들고 운영합니다.</strong>
-      <p>한줄일기, 메모요처럼 내가 실제로 쓰고 개선할 수 있는 문제부터 제품으로 만듭니다.</p>
-      <span class="read-more">제품 보기 ↗</span>
-    </a>
-    <a class="work-card" href="https://work.kangdaejong.com/worklog/" target="_blank" rel="noopener">
-      <span class="work-topline"><span>02</span><span>WORKLOG</span></span>
-      <strong>과정을 매일 남깁니다.</strong>
-      <p>출시, 실패, 자동화, 의사결정을 기록으로 남겨 다음 작업의 속도를 올립니다.</p>
-      <span class="read-more">작업일지 ↗</span>
-    </a>
-    <a class="work-card" href="https://work.kangdaejong.com/system/" target="_blank" rel="noopener">
-      <span class="work-topline"><span>03</span><span>SYSTEM</span></span>
-      <strong>AI와 함께 일하는 시스템을 만듭니다.</strong>
-      <p>Claude, Codex, 로컬 장비, 자동화를 엮어 혼자서도 여러 작업을 굴릴 수 있게 합니다.</p>
-      <span class="read-more">시스템 ↗</span>
-    </a>
-  </section>
-
-  <div class="section-head reveal"><span class="section-label"><span class="slash">//</span>Principles</span></div>
-  <section class="profile-grid reveal" aria-label="작업 원칙">
-    <div class="profile-card">
-      <span>01</span>
-      <strong>직접 만든다</strong>
-      <p>기획, 디자인, 개발, 운영을 한 흐름으로 보며 필요한 만큼 직접 배웁니다.</p>
-    </div>
-    <div class="profile-card">
-      <span>02</span>
-      <strong>작게 출시한다</strong>
-      <p>큰 선언보다 작은 제품과 검증 가능한 결과를 먼저 밖으로 내보냅니다.</p>
-    </div>
-    <div class="profile-card">
-      <span>03</span>
-      <strong>기록으로 남긴다</strong>
-      <p>성공한 길뿐 아니라 막힌 길도 남겨 다음 작업의 재료로 씁니다.</p>
-    </div>
-  </section>
-
-  <div class="section-head reveal"><span class="section-label"><span class="slash">//</span>기록 · 포트폴리오</span></div>
-  <a class="cta-card reveal" href="https://work.kangdaejong.com/" target="_blank" rel="noopener">
-    <div class="cta-text">
-      <div class="cta-title">작업장</div>
-      <div class="cta-sub">제품·작업일지·뉴스레터·인사이트 아카이브</div>
-    </div>
-    <span class="cta-arrow">↗</span>
-  </a>
-</div>
+</main>
 
 <mb-footer></mb-footer>
 
