@@ -27,8 +27,40 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # ⚠️ 제거 금지 (DO NOT REMOVE) — founder shared header/footer drift guard (T-260720-023, 2026-07-20).
+  # 이 repo(founder)는 kangdaejong.com/mb-components.js 를 런타임 소비한다. verify-founder-*.mjs 가
+  # 그 소비 계약(<script src=".../mb-components.js">·<mb-header active="founder">·<mb-footer>·톤/카피)
+  # 을 검사한다. npm 수동 전용 orphan(자동 실효 0)이던 것을 머지 경로에 연결: auto-merge 가
+  # needs: verify-shared-sources 로 의존하므로 헤더/푸터 드리프트 PR 은 auto-merge 되지 않는다
+  # (fail-closed). pull_request_target 에서 PR 코드를 실행하므로 secrets 참조 금지 +
+  # permissions contents:read 고정 — 이 격리를 약화하지 말 것.
+  verify-shared-sources:
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.pull_request.draft == false &&
+      (startsWith(github.event.pull_request.head.ref, 'wsl/') ||
+       startsWith(github.event.pull_request.head.ref, 'macmini/') ||
+       startsWith(github.event.pull_request.head.ref, 'desktop/') ||
+       startsWith(github.event.pull_request.head.ref, 'desktop3060ti/') ||
+       startsWith(github.event.pull_request.head.ref, 'notebook/') ||
+       startsWith(github.event.pull_request.head.ref, 'notebook3060/') ||
+       startsWith(github.event.pull_request.head.ref, 'mac/')) &&
+      !contains(github.event.pull_request.labels.*.name, 'no-auto-merge')
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout PR merge result
+        uses: actions/checkout@v4
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+      - name: Verify founder shared header
+        run: node scripts/verify-founder-shared-header.mjs
+      - name: Verify founder renewal
+        run: node scripts/verify-founder-renewal.mjs
+
   auto-merge:
     runs-on: ubuntu-latest
+    needs: verify-shared-sources
     if: >-
       github.event.pull_request.draft == false &&
       (startsWith(github.event.pull_request.head.ref, 'wsl/') ||
