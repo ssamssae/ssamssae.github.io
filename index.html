@@ -9,7 +9,8 @@
 <meta property="og:type" content="profile"/>
 <meta property="og:url" content="https://founder.kangdaejong.com/"/>
 <meta property="og:image" content="https://founder.kangdaejong.com/profile.jpg"/>
-<meta name="theme-color" content="#ffffff"/>
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"/>
+<meta name="theme-color" content="#0f0f10" media="(prefers-color-scheme: dark)"/>
 <title>강대종 · 마이너스베타스튜디오 대표</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -32,9 +33,34 @@
   --green:#177245;
   --red:#b42318;
   --sand:#e9e4d8;
+  --cta-fg:#ffffff;
   --shadow:0 18px 44px rgba(17,17,17,0.08);
   --sans:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,sans-serif;
   --mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+}
+
+/* 다크 대응 (2026-08-06 T-260806-060) — kangdaejong.com / work 와 같은 값 세트를 써서
+   세 사이트가 한 톤으로 붙는다. 색 '이름'은 그대로 두고 값만 뒤집으므로 밝은 모드는 안 바뀐다.
+   --cta-fg 는 채운 버튼 전용: 다크 액센트(#7aa2ff) 위 흰 글자는 명암비 2.5:1 로 깨져서
+   다크에서만 글자를 어둡게 돌린다(7.7:1). */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0f0f10;
+    --bg-soft:#17171a;
+    --bg-ink:#f2f2f2;
+    --fg:#f2f2f2;
+    --fg-dim:#b6b6ba;
+    --fg-mute:#8a8a90;
+    --border:#2c2c31;
+    --border-strong:#4a4a52;
+    --blue:#7aa2ff;
+    --accent:#7aa2ff;
+    --green:#5bd08a;
+    --red:#ff8b80;
+    --sand:#2a2620;
+    --cta-fg:#0f0f10;
+    --shadow:0 18px 44px rgba(0,0,0,0.55);
+  }
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scrollbar-gutter:stable}
@@ -56,7 +82,7 @@ img{max-width:100%;display:block}
 }
 .button:hover{transform:translateY(-1px);border-color:var(--blue);color:var(--blue)}
 .button.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.button.primary:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.button.primary:hover{background:var(--blue);border-color:var(--blue);color:var(--cta-fg)}
 
 .hero{
   min-height:620px;display:grid;align-items:center;padding:28px 0 56px;border-bottom:1px solid var(--border);
@@ -79,8 +105,8 @@ img{max-width:100%;display:block}
 .portrait-image{width:100%;height:100%;object-fit:cover;object-position:center 22%}
 .portrait-caption{
   position:absolute;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;gap:12px;
-  padding:9px 10px;border:1px solid rgba(255,255,255,.58);border-radius:7px;
-  background:rgba(255,255,255,.82);backdrop-filter:blur(14px);
+  padding:9px 10px;border:1px solid color-mix(in srgb, var(--bg) 58%, transparent);border-radius:7px;
+  background:color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter:blur(14px);
   font-family:var(--mono);font-size:11px;font-weight:700;color:var(--fg);
 }
 .namecard-link{border-radius:8px;line-height:0}
@@ -136,8 +162,8 @@ img{max-width:100%;display:block}
   display:flex;flex-direction:column;transition:border-color .16s,transform .16s,box-shadow .16s;
 }
 .product-card:hover{border-color:var(--blue);transform:translateY(-1px);box-shadow:var(--shadow);color:inherit}
-.product-card.primary{background:var(--fg);color:#fff;border-color:var(--fg)}
-.product-card.primary p,.product-card.primary span,.product-card.primary em{color:rgba(255,255,255,.72)}
+.product-card.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.product-card.primary p,.product-card.primary span,.product-card.primary em{color:color-mix(in srgb, var(--bg) 72%, transparent)}
 .product-card span{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--fg-mute);margin-bottom:32px}
 .product-card h3{font-size:24px;line-height:1.28;font-weight:800;margin-bottom:12px;word-break:keep-all}
 .product-card p{font-size:14px;line-height:1.72;color:var(--fg-dim);word-break:keep-all}
@@ -148,7 +174,7 @@ img{max-width:100%;display:block}
   border:1px solid var(--border);border-radius:8px;padding:20px 20px 22px;background:var(--bg-soft);
   min-height:170px;display:flex;flex-direction:column;transition:border-color .16s,transform .16s,background .16s;
 }
-.connect-list a:hover{border-color:var(--blue);background:#fff;transform:translateY(-1px);color:inherit}
+.connect-list a:hover{border-color:var(--blue);background:var(--bg-soft);transform:translateY(-1px);color:inherit}
 .connect-list span{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--fg-mute);margin-bottom:28px}
 .connect-list strong{font-size:18px;line-height:1.38;font-weight:800;word-break:keep-all}
 .connect-list em{margin-top:auto;font-family:var(--mono);font-size:12px;font-style:normal;color:var(--blue);font-weight:700}
