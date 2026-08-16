@@ -11,10 +11,17 @@ const checks = [
       /<h1 id="page-title">강대종<\/h1>/.test(html),
   },
   {
-    label: "renewed founder page keeps profile media in first viewport",
+    // T-260816-006 — 아니키 지시(2026-08-16)로 대표 사진·명함을 공개면에서 내렸다.
+    // 종전 검사는 그 둘이 "있어야 한다"고 강제했다. 의도가 뒤집혔으므로 검사도 뒤집는다.
+    // ★명함이 사진보다 민감했다 — namecard.png 에 개인 휴대폰번호·사업장 주소가
+    //   평문 이미지로 박혀 있었고 공개 URL 로 열려 있었다(얼굴이 없어 사진 축 점검에 안 걸림).
+    // 이 검사는 실수로 되살아나는 것을 막는 가드다. 되돌리려면 아니키 재지시가 근거로 필요하다.
+    label: "founder page must not expose profile photo or namecard",
     ok:
-      /<img class="portrait-image" src="\.\/profile\.jpg" alt="강대종 프로필 사진"/.test(html) &&
-      /<img class="namecard-image" src="\.\/namecard\.png" alt="강대종 · 마이너스베타스튜디오 명함"/.test(html),
+      !/profile\.jpg/.test(html) &&
+      !/namecard\.png/.test(html) &&
+      !/class="portrait-image"/.test(html) &&
+      !/class="namecard-image"/.test(html),
   },
   {
     label: "renewed founder page has proof strip",

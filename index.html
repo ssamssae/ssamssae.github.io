@@ -8,7 +8,6 @@
 <meta property="og:description" content="비개발자 출신 1인 개발자. 마이너스베타스튜디오에서 앱, 웹 서비스, 자동화 도구를 작게 만들고 오래 운영합니다."/>
 <meta property="og:type" content="profile"/>
 <meta property="og:url" content="https://founder.kangdaejong.com/"/>
-<meta property="og:image" content="https://founder.kangdaejong.com/profile.jpg"/>
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"/>
 <meta name="theme-color" content="#0f0f10" media="(prefers-color-scheme: dark)"/>
 <title>강대종 · 마이너스베타스튜디오 대표</title>
@@ -89,7 +88,7 @@ img{max-width:100%;display:block}
   display:grid;align-items:center;padding:72px 0 var(--pad-section);border-bottom:1px solid var(--border);
 }
 .hero-inner{
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(310px,420px);gap:clamp(28px,5vw,56px);align-items:center;
+  display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,5vw,56px);align-items:center;
 }
 .hero-copy{min-width:0}
 .hero-copy h1{font-size:var(--text-h1);line-height:var(--leading-h1);font-weight:800;letter-spacing:0;margin-top:12px;word-break:keep-all}
@@ -98,20 +97,6 @@ img{max-width:100%;display:block}
 .lead{margin-top:16px;max-width:var(--measure);font-size:var(--text-lead);line-height:1.74;color:var(--fg-dim);font-weight:500}
 .lead strong{color:var(--fg);font-weight:800}
 .hero-actions{margin-top:24px}
-.hero-media{display:grid;gap:var(--gap-card)}
-.portrait-frame{
-  position:relative;overflow:hidden;border:1px solid var(--border-strong);border-radius:var(--radius-card);background:var(--bg-soft);
-  aspect-ratio:4/5;box-shadow:var(--shadow);
-}
-.portrait-image{width:100%;height:100%;object-fit:cover;object-position:center 22%}
-.portrait-caption{
-  position:absolute;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;gap:12px;
-  padding:9px 10px;border:1px solid color-mix(in srgb, var(--bg) 58%, transparent);border-radius:var(--radius-btn);
-  background:color-mix(in srgb, var(--bg) 82%, transparent);backdrop-filter:blur(14px);
-  font-family:var(--mono);font-size:var(--text-badge);font-weight:700;letter-spacing:var(--track-badge);color:var(--fg);
-}
-.namecard-link{border-radius:var(--radius-card);line-height:0}
-.namecard-image{width:100%;height:auto;border:1px solid var(--border);border-radius:var(--radius-card);background:var(--bg-soft)}
 
 .proof-strip{padding:var(--pad-section) 0;border-bottom:1px solid var(--border)}
 .proof-inner{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-card)}
@@ -193,7 +178,6 @@ img{max-width:100%;display:block}
   .site-shell{width:min(calc(100% - 40px),720px)}
   .hero{padding:48px 0 var(--pad-section-sm)}
   .hero-inner,.identity-grid,.product-grid{grid-template-columns:1fr}
-  .hero-media{order:-1;max-width:430px}
   .proof-inner,.loop-list,.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .focus-list,.connect-list{grid-template-columns:1fr}
   .section-head{grid-template-columns:1fr;gap:10px}
@@ -205,7 +189,6 @@ img{max-width:100%;display:block}
   .proof-inner,.loop-list,.product-grid{grid-template-columns:1fr}
   .button-row{display:grid;grid-template-columns:1fr}
   .button{width:100%}
-  .portrait-caption{font-size:10px}
   .identity-panel div{grid-template-columns:1fr;gap:6px}
 }
 </style>
@@ -228,20 +211,6 @@ img{max-width:100%;display:block}
           <a class="button" href="https://kangdaejong.com/">회사홈</a>
           <a class="button" href="https://work.kangdaejong.com/worklog/">작업일지</a>
         </div>
-      </div>
-      <div class="hero-media">
-        <a class="portrait-link" href="https://work.kangdaejong.com/about" target="_blank" rel="noopener" aria-label="강대종 소개서 보기">
-          <div class="portrait-frame">
-            <img class="portrait-image" src="./profile.jpg" alt="강대종 프로필 사진"/>
-            <div class="portrait-caption">
-              <span>FOUNDER</span>
-              <span>MINUSBETA</span>
-            </div>
-          </div>
-        </a>
-        <a class="namecard-link" href="./namecard.png" target="_blank" rel="noopener">
-          <img class="namecard-image" src="./namecard.png" alt="강대종 · 마이너스베타스튜디오 명함"/>
-        </a>
       </div>
     </div>
   </section>
