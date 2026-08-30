@@ -21,9 +21,9 @@ const checks = [
     label: "founder page uses Linear dark chrome",
     ok:
       /--bg:#08090A;/.test(html) &&
-      /--fg:#E2E4E7;/.test(html) &&
-      /--accent:#8FA4FF;/.test(html) &&
-      !/#2563eb|#ffffff|#10161f|#d4a574|#00e5ff|#00b8d4|#ff00aa/.test(html),
+      /--fg:#F7F8F8;/.test(html) &&
+      /--accent:#7170FF;/.test(html) &&
+      !/#2563eb|#ffffff|#10161f|#d4a574|#8FA4FF|#00e5ff|#00b8d4|#ff00aa/.test(html),
   },
   {
     label: "founder CTA points work root as 작업장",

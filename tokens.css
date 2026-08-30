@@ -1,29 +1,27 @@
-/* ─────────────────────────────────────────────────────────────
-   founder.kangdaejong.com 디자인 토큰 — vendored (T-260807-029)
-
-   T-260831-005: Linear.app 크롬 + Stripe.com 섹션 리듬.
-   색·라운드·간격은 회사홈과 같은 Linear 값. 이 파일만 단독으로 고치지 않는다.
-   ───────────────────────────────────────────────────────────── */
+/* founder.kangdaejong.com 디자인 토큰 — T-260831-005 기준점
+   Linear 라이브 크롬 + Stripe 섹션 리듬. */
 :root {
-  --text-h1: clamp(40px, 7vw, 72px);
-  --text-h2: clamp(26px, 3.4vw, 40px);
-  --text-h3: 18px;
-  --text-lead: 18px;
-  --text-body: 15px;
+  --text-h1: clamp(38px, 6vw, 64px);
+  --text-h2: clamp(28px, 4vw, 48px);
+  --text-h3: 20px;
+  --text-lead: 16px;
+  --text-body: 16px;
   --text-desc: 14px;
-  --text-meta: 12px;
-  --text-badge: 11px;
+  --text-meta: 13px;
+  --text-badge: 12px;
 
   --track-eyebrow: 0.12em;
   --track-badge: 0.08em;
-  --leading-body: 1.65;
-  --leading-h1: 1.04;
+  --leading-body: 1.50;
+  --leading-h1: 1.00;
   --leading-desc: 1.6;
 
   --measure: 62ch;
-  --radius-card: 10px;
+  --radius-card: 12px;
   --radius-btn: 8px;
+  --radius-pill: 9999px;
   --gap-card: 16px;
-  --pad-section: 96px;
+  --pad-section: 128px;
   --pad-section-sm: 64px;
+  --pad-head-bottom: 96px;
 }
