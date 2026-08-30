@@ -1,38 +1,27 @@
-/* ─────────────────────────────────────────────────────────────
-   founder.kangdaejong.com 디자인 토큰 — vendored (T-260807-029)
-
-   출처 = kangdaejong-com repo (ssamssae/kangdaejong-com)
-   src/styles/tokens.css, /organization/ 페이지 디자인 시스템에서
-   추출한 값 (T-260806-062). 값을 바꿀 땐 정본(kangdaejong-com)을
-   먼저 바꾸고 이 파일에 재동기화한다 — 이 파일만 단독으로 고치지 않는다.
-
-   색 팔레트는 이 파일에 없다 — founder 는 이미 자체 :root(index.html
-   <style>)에 kangdaejong.com/work 와 같은 값 세트로 라이트·다크가
-   맞춰져 있다(T-260806-060). 이 파일은 타이포·자간·행간·간격·형태만 담는다.
-   ───────────────────────────────────────────────────────────── */
+/* founder.kangdaejong.com 디자인 토큰 — T-260831-005 기준점
+   Linear 라이브 크롬 + Stripe 섹션 리듬. */
 :root {
-  /* 타입 스케일 — 조직도 페이지 실측값 */
-  --text-h1: clamp(30px, 5vw, 46px);  /* 페이지 제목 */
-  --text-h2: clamp(22px, 3vw, 28px);  /* 섹션 제목 */
-  --text-h3: 19px;                    /* 카드 제목 */
-  --text-lead: 17px;                  /* 리드 문단 */
-  --text-body: 15px;                  /* 본문 */
-  --text-desc: 14px;                  /* 카드 설명 */
-  --text-meta: 12px;                  /* eyebrow · mono 메타 */
-  --text-badge: 11px;                 /* 카드 상단 라벨 */
+  --text-h1: clamp(38px, 6vw, 64px);
+  --text-h2: clamp(28px, 4vw, 48px);
+  --text-h3: 20px;
+  --text-lead: 16px;
+  --text-body: 16px;
+  --text-desc: 14px;
+  --text-meta: 13px;
+  --text-badge: 12px;
 
-  /* 자간·행간 */
-  --track-eyebrow: 0.14em;
+  --track-eyebrow: 0.12em;
   --track-badge: 0.08em;
-  --leading-body: 1.65;
-  --leading-h1: 1.25;
+  --leading-body: 1.50;
+  --leading-h1: 1.00;
   --leading-desc: 1.6;
 
-  /* 간격·형태 리듬 */
-  --measure: 62ch;        /* 산문 최대 폭 */
-  --radius-card: 12px;    /* 카드 라운드 */
-  --radius-btn: 8px;      /* 버튼·소형 요소 라운드 */
-  --gap-card: 16px;       /* 카드 그리드 간격 */
-  --pad-section: 56px;    /* 섹션 상하 패딩 */
-  --pad-section-sm: 40px; /* 섹션 상하 패딩 (640px 이하) */
+  --measure: 62ch;
+  --radius-card: 12px;
+  --radius-btn: 8px;
+  --radius-pill: 9999px;
+  --gap-card: 16px;
+  --pad-section: 128px;
+  --pad-section-sm: 64px;
+  --pad-head-bottom: 96px;
 }
