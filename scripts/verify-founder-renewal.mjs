@@ -4,11 +4,8 @@ const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 
 const checks = [
   {
-    label: "renewed founder hero uses split hero shell",
-    ok:
-      /<section class="hero"[^>]*aria-labelledby="page-title"/.test(html) &&
-      /<div class="hero-inner">/.test(html) &&
-      /<h1 id="page-title">강대종<\/h1>/.test(html),
+    label: "founder hero introduces the maker and work direction",
+    ok: /id="page-title"/.test(html) && /강대종입니다/.test(html) && /class="f-poster"/.test(html),
   },
   {
     // T-260816-006 — 아니키 지시(2026-08-16)로 대표 사진·명함을 공개면에서 내렸다.
@@ -24,17 +21,13 @@ const checks = [
       !/class="namecard-image"/.test(html),
   },
   {
-    label: "renewed founder page has proof strip",
-    ok:
-      /<section class="proof-strip" aria-label="대표 소개 요약">/.test(html) &&
-      /LIVE APPS/.test(html) &&
-      /WORKLOG/.test(html) &&
-      /OPEN TOOLS/.test(html),
+    label: "founder page links story, work and working approach",
+    ok: ['story', 'work', 'approach'].every(id => html.includes(`id="${id}"`) && html.includes(`href="#${id}"`)),
   },
   {
     label: "renewed founder page explains operating loop",
     ok:
-      /OPERATING LOOP/.test(html) &&
+      /WORK IN PROGRESS/.test(html) &&
       /작게 만든다/.test(html) &&
       /계속 본다/.test(html) &&
       /덜어낸다/.test(html),
@@ -43,7 +36,7 @@ const checks = [
     label: "renewed founder page links company, products, and worklog",
     ok:
       /href="https:\/\/kangdaejong\.com\/"[^>]*>회사홈/.test(html) &&
-      /href="https:\/\/work\.kangdaejong\.com\/products\/"[^>]*>제품 보기/.test(html) &&
+      /href="https:\/\/work\.kangdaejong\.com\/products\/"/.test(html) &&
       /href="https:\/\/work\.kangdaejong\.com\/worklog\/"[^>]*>작업일지/.test(html),
   },
   {
