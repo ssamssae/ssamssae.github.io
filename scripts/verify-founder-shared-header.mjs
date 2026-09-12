@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 
 const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 
+const css = readFileSync(new URL("../renewal.css", import.meta.url), "utf8");
 const checks = [
   {
     label: "founder page consumes shared header from kangdaejong.com",
@@ -20,14 +21,13 @@ const checks = [
   {
     label: "founder page uses workshop light chrome",
     ok:
-      /color-scheme:light/.test(html) &&
+      /color-scheme:light/.test(css) &&
       /name="theme-color" content="#f7f6f2"/.test(html) &&
       !/#08090A|#7170FF|color-scheme:dark/.test(html),
   },
   {
-    label: "founder CTA points work root as 작업장",
-    ok:
-      /<a href="https:\/\/work\.kangdaejong\.com\/">\s*<span>WORKSPACE<\/span>\s*<strong>제품, 작업일지, 뉴스레터 허브<\/strong>\s*<em>작업장 →<\/em>\s*<\/a>/.test(html),
+    label: "founder CTA points work root as workspace",
+    ok: /href="https:\/\/work\.kangdaejong\.com\/">작업장 둘러보기/.test(html),
   },
   {
     label: "founder page no longer labels work root as 작업일지",
