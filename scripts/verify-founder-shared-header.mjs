@@ -18,12 +18,11 @@ const checks = [
       /<meta property="og:title" content="강대종 · 마이너스베타스튜디오 대표"\/>/.test(html),
   },
   {
-    label: "founder page uses Linear dark chrome",
+    label: "founder page uses workshop light chrome",
     ok:
-      /--bg:#08090A;/.test(html) &&
-      /--fg:#F7F8F8;/.test(html) &&
-      /--accent:#7170FF;/.test(html) &&
-      !/#2563eb|#ffffff|#10161f|#d4a574|#8FA4FF|#00e5ff|#00b8d4|#ff00aa/.test(html),
+      /color-scheme:light/.test(html) &&
+      /name="theme-color" content="#f7f6f2"/.test(html) &&
+      !/#08090A|#7170FF|color-scheme:dark/.test(html),
   },
   {
     label: "founder CTA points work root as 작업장",
