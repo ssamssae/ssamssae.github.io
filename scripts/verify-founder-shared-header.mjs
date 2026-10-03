@@ -22,7 +22,7 @@ const checks = [
     label: "founder page uses workshop light chrome",
     ok:
       /color-scheme:light/.test(css) &&
-      /name="theme-color" content="#f7f6f2"/.test(html) &&
+      /name="theme-color" content="#ffffff"/.test(html) &&
       !/#08090A|#7170FF|color-scheme:dark/.test(html),
   },
   {

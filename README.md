@@ -20,3 +20,5 @@ Live: https://ssamssae.github.io/
 ## 수정 사이클
 
 단순 index.html 1장이라 수정 → commit → push 만으로 배포 반영 (GitHub Pages 는 자동 빌드).
+
+[화면 확인 경로](docs/feature-map.md)
