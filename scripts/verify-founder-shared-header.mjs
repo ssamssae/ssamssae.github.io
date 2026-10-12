@@ -9,8 +9,8 @@ const checks = [
     ok: /<script src="https:\/\/kangdaejong\.com\/mb-components\.js" defer><\/script>/.test(html),
   },
   {
-    label: "founder page marks founder nav active (studio tone follows host palette, T-261012-024)",
-    ok: /<mb-header active="founder" tone="studio"><\/mb-header>/.test(html),
+    label: "founder page marks founder nav active (studio tone follows host palette T-261012-024, KO/EN toggle T-261012-029)",
+    ok: /<mb-header active="founder" tone="studio" lang-toggle><\/mb-header>/.test(html),
   },
   {
     label: "founder page keeps representative title copy",
@@ -38,6 +38,11 @@ const checks = [
   {
     label: "founder page no longer labels work root as 작업일지",
     ok: !/<div class="cta-title">작업일지<\/div>/.test(html),
+  },
+  {
+    // T-261012-029: 한국어/EN 전환 — 사전(i18n-en.js)을 전환 스크립트(lang-toggle.js)보다 먼저 읽어야 한다.
+    label: "founder page loads its KO/EN dictionary before the toggle script",
+    ok: /<script src="\.\/i18n-en\.js" defer><\/script>\s*<script src="\.\/lang-toggle\.js" defer><\/script>/.test(html),
   },
 ];
 
