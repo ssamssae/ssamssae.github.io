@@ -19,16 +19,14 @@ const checks = [
       /<meta property="og:title" content="강대종 · 마이너스베타스튜디오 대표"\/>/.test(html),
   },
   {
-    // T-261012-024: 작업장·회사홈과 같은 톤 — 기본은 라이트, 기기 설정이 다크면 같은 다크 팔레트(#121519).
-    label: "founder page follows workshop chrome (light default + device dark)",
+    // T-261013-004: 색(라이트·다크)·폭은 회사홈 공용 원본 하나 — 이 페이지는 그 파일을 읽고, 자체 색 값·theme-color 를 두지 않는다.
+    label: "founder page reads the shared company tokens (light default + device dark)",
     ok:
-      /color-scheme:light/.test(css) &&
       /<html lang="ko" data-theme="auto">/.test(html) &&
-      /name="theme-color" content="#ffffff"/.test(html) &&
-      /name="theme-color" content="#121519" media="\(prefers-color-scheme: dark\)"/.test(html) &&
-      /html\[data-theme="auto"\]\{color-scheme:dark;--bg:#121519/.test(css) &&
-      /--mb-host-bg:#121519/.test(css) &&
-      !/color-scheme:dark/.test(html) &&
+      /<link rel="stylesheet" href="https:\/\/kangdaejong\.com\/brand\/current\/tokens\.css"\/>/.test(html) &&
+      html.indexOf("brand/current/tokens.css") < html.indexOf("./renewal.css") &&
+      !/name="theme-color"/.test(html) &&
+      !/prefers-color-scheme:\s*dark/.test(css) &&
       !/#08090A|#7170FF/.test(html + css),
   },
   {
