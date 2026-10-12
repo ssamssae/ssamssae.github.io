@@ -32,6 +32,14 @@ const checks = [
       !/#08090A|#7170FF/.test(html + css),
   },
   {
+    // T-261012-041: 공용 카드는 버전 없는 고정 주소 하나만 쓴다 — 카드 그림은 회사홈에서만 바꾸고 여기는 고칠 곳이 없다.
+    label: "founder share card uses the fixed company card address without a version",
+    ok:
+      /<meta property="og:image" content="https:\/\/kangdaejong\.com\/brand\/current\/social\.png"\/>/.test(html) &&
+      /<meta name="twitter:image" content="https:\/\/kangdaejong\.com\/brand\/current\/social\.png"\/>/.test(html) &&
+      !/social\.png\?/.test(html),
+  },
+  {
     label: "founder CTA points work root as workspace",
     ok: /href="https:\/\/work\.kangdaejong\.com\/">작업장 둘러보기/.test(html),
   },
