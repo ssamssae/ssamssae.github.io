@@ -9,8 +9,8 @@ const checks = [
     ok: /<script src="https:\/\/kangdaejong\.com\/mb-components\.js" defer><\/script>/.test(html),
   },
   {
-    label: "founder page marks founder nav active",
-    ok: /<mb-header active="founder"><\/mb-header>/.test(html),
+    label: "founder page marks founder nav active (studio tone follows host palette, T-261012-024)",
+    ok: /<mb-header active="founder" tone="studio"><\/mb-header>/.test(html),
   },
   {
     label: "founder page keeps representative title copy",
@@ -19,11 +19,17 @@ const checks = [
       /<meta property="og:title" content="강대종 · 마이너스베타스튜디오 대표"\/>/.test(html),
   },
   {
-    label: "founder page uses workshop light chrome",
+    // T-261012-024: 작업장·회사홈과 같은 톤 — 기본은 라이트, 기기 설정이 다크면 같은 다크 팔레트(#121519).
+    label: "founder page follows workshop chrome (light default + device dark)",
     ok:
       /color-scheme:light/.test(css) &&
+      /<html lang="ko" data-theme="auto">/.test(html) &&
       /name="theme-color" content="#ffffff"/.test(html) &&
-      !/#08090A|#7170FF|color-scheme:dark/.test(html),
+      /name="theme-color" content="#121519" media="\(prefers-color-scheme: dark\)"/.test(html) &&
+      /html\[data-theme="auto"\]\{color-scheme:dark;--bg:#121519/.test(css) &&
+      /--mb-host-bg:#121519/.test(css) &&
+      !/color-scheme:dark/.test(html) &&
+      !/#08090A|#7170FF/.test(html + css),
   },
   {
     label: "founder CTA points work root as workspace",

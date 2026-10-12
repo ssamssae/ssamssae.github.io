@@ -43,8 +43,8 @@ const checks = [
     label: "renewed founder page keeps shared chrome",
     ok:
       /<script src="https:\/\/kangdaejong\.com\/mb-components\.js" defer><\/script>/.test(html) &&
-      /<mb-header active="founder"><\/mb-header>/.test(html) &&
-      /<mb-footer><\/mb-footer>/.test(html),
+      /<mb-header active="founder" tone="studio"><\/mb-header>/.test(html) &&
+      /<mb-footer tone="studio"><\/mb-footer>/.test(html),
   },
 ];
 
