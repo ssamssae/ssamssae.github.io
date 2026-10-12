@@ -2,6 +2,16 @@ import { readFileSync } from "node:fs";
 
 const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 
+// T-261012-029: 한국어/EN 전환 사전 누락 검사 — 본문 텍스트와 aria-label·alt·title·placeholder 의 한국어가 전부 사전 키여야 한다.
+const dictSource = readFileSync(new URL("../i18n-en.js", import.meta.url), "utf8");
+const dict = JSON.parse(dictSource.slice(dictSource.indexOf("{"), dictSource.lastIndexOf("}") + 1));
+const decode = (s) => s.replace(/&nbsp;/g, " ").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, "&");
+const norm = (s) => decode(s).replace(/\s+/g, " ").trim();
+const bodyHtml = html.slice(html.indexOf("<body"), html.lastIndexOf("</body>")).replace(/<script[\s\S]*?<\/script>/g, "").replace(/<style[\s\S]*?<\/style>/g, "");
+const koreanTexts = bodyHtml.replace(/<[^>]+>/g, "\u0000").split("\u0000").map(norm).filter((text) => /[가-힣]/.test(text));
+const koreanAttrs = [...bodyHtml.matchAll(/\s(?:aria-label|alt|title|placeholder)="([^"]*)"/g)].map((match) => norm(match[1])).filter((text) => /[가-힣]/.test(text));
+const missingEnglish = [...new Set([...koreanTexts, ...koreanAttrs])].filter((text) => !Object.prototype.hasOwnProperty.call(dict, text));
+
 const checks = [
   {
     label: "founder hero introduces the maker and work direction",
@@ -43,8 +53,12 @@ const checks = [
     label: "renewed founder page keeps shared chrome",
     ok:
       /<script src="https:\/\/kangdaejong\.com\/mb-components\.js" defer><\/script>/.test(html) &&
-      /<mb-header active="founder" tone="studio"><\/mb-header>/.test(html) &&
+      /<mb-header active="founder" tone="studio" lang-toggle><\/mb-header>/.test(html) &&
       /<mb-footer tone="studio"><\/mb-footer>/.test(html),
+  },
+  {
+    label: `every Korean string on the page has an English entry in i18n-en.js${missingEnglish.length ? ` (missing ${missingEnglish.length}: ${missingEnglish.slice(0, 3).join(" | ")})` : ""}`,
+    ok: koreanTexts.length > 0 && missingEnglish.length === 0,
   },
 ];
 
