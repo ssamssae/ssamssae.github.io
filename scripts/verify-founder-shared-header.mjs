@@ -5,6 +5,15 @@ const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../renewal.css", import.meta.url), "utf8");
 const checks = [
   {
+    label: "founder canonical, social URL and source sitemap use the company path",
+    ok:
+      /<link rel="canonical" href="https:\/\/kangdaejong\.com\/founder\/"\/>/.test(html) &&
+      /<meta property="og:url" content="https:\/\/kangdaejong\.com\/founder\/"\/>/.test(html) &&
+      !html.includes('https://founder.kangdaejong.com/') &&
+      !html.includes('https://work.kangdaejong.com/') &&
+      readFileSync(new URL('../sitemap.xml',import.meta.url),'utf8').match(/<loc>([^<]+)<\/loc>/g)?.join('') === '<loc>https://kangdaejong.com/founder/</loc>',
+  },
+  {
     label: "founder page consumes shared header from kangdaejong.com",
     ok: /<script src="https:\/\/kangdaejong\.com\/mb-components\.js" defer><\/script>/.test(html),
   },
@@ -39,7 +48,7 @@ const checks = [
   },
   {
     label: "founder CTA points work root as workspace",
-    ok: /href="https:\/\/work\.kangdaejong\.com\/">작업장 둘러보기/.test(html),
+    ok: /href="https:\/\/kangdaejong\.com\/work\/">작업장 둘러보기/.test(html),
   },
   {
     label: "founder page no longer labels work root as 작업일지",
