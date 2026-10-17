@@ -46,8 +46,8 @@ const checks = [
     label: "renewed founder page links company, products, and worklog",
     ok:
       /href="https:\/\/kangdaejong\.com\/"[^>]*>회사홈/.test(html) &&
-      /href="https:\/\/work\.kangdaejong\.com\/products\/"/.test(html) &&
-      /href="https:\/\/work\.kangdaejong\.com\/worklog\/"[^>]*>작업일지/.test(html),
+      /href="https:\/\/kangdaejong\.com\/work\/products\/"/.test(html) &&
+      /href="https:\/\/kangdaejong\.com\/work\/worklog\/"[^>]*>작업일지/.test(html),
   },
   {
     label: "renewed founder page keeps shared chrome",
