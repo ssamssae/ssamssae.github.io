@@ -15,7 +15,7 @@ const missingEnglish = [...new Set([...koreanTexts, ...koreanAttrs])].filter((te
 const checks = [
   {
     label: "founder hero introduces the maker and work direction",
-    ok: /id="page-title"/.test(html) && /강대종입니다/.test(html) && /class="f-poster"/.test(html),
+    ok: /id="page-title"/.test(html) && /강대종이에요/.test(html) && /class="f-poster"/.test(html),
   },
   {
     // T-260816-006 — 아니키 지시(2026-08-16)로 대표 사진·명함을 공개면에서 내렸다.
@@ -37,7 +37,7 @@ const checks = [
   {
     label: "renewed founder page explains operating loop",
     ok:
-      /WORK IN PROGRESS/.test(html) &&
+      /진행 중인 작업/.test(html) &&
       /작게 만든다/.test(html) &&
       /계속 본다/.test(html) &&
       /덜어낸다/.test(html),
