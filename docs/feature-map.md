@@ -18,3 +18,10 @@ T-261012-029: 한국어/EN 전환 버튼 — 공용 헤더 `<mb-header ... lang-
 
 - `lang-toggle.js`를 지연한 상태에서 EN 또는 한국어를 누른다. 스크립트가 준비되면 마지막 선택이 본문·제목에 반영돼야 한다. 이전에 저장한 언어보다 현재 선택이 우선한다. 저장소를 사용할 수 없어도 현재 페이지 전환은 동작한다.
 - 회사 core와 같은 초기화 순서를 유지한다. 두 소스의 함수 일치, 필수 소스 검사와 실제 브라우저의 지연 로드·새로고침 검사를 T-261017-028 근거에 기록한다. 기존 제품 하위 앱과 저장 데이터는 변경하지 않는다.
+
+## T-261024-058: 다크 해제·전부 라이트 + 생김새를 공용 톤 파일에 연결
+
+- 진입점: https://kangdaejong.com/founder/ . `<html data-theme="light">`·`<meta name="color-scheme" content="light">` 로 기기 설정이 다크여도 흰 바탕이다(공용 tokens.css 의 다크 블록은 `data-theme="light"` 가 아닌 문서에만 걸린다).
+- 생김새: `renewal.css` 는 px 숫자 없이 `var(--tone-*)`(글자 크기·줄 간격·간격·둥글기·폭)와 공용 부품 `.mb-btn.mb-btn--primary`(버튼)·`.mb-card`(만드는 것·만들며 배운 것·일하는 방식 카드)·`.mb-link`(카드 안 링크·연락 링크)만 쓴다. 칸 나눔(3칸↔1칸, 제목 줄, 색인 줄)은 미디어 쿼리 대신 flex-basis 계산식으로 `--tone-prose-max` 를 기준 삼는다.
+- 확인: 390/1440px, 기기 라이트·다크 둘 다에서 바탕이 흰색이고 가로 넘침이 없다. 버튼이 파란 56px 둥근 버튼, 카드가 회색 둥근 면(선 없음), 카드 링크가 파란 밑줄 글 링크다. 공용 톤 파일 값을 바꾸면 이 페이지도 같이 바뀐다.
+- 게이트: `node scripts/verify-tone-copies.mjs`(기준선 0 — 직접 숫자가 생기면 실패, 다크 규칙·`--tone-*` 정의 복사는 즉시 실패) 가 `verify-founder-renewal.mjs` 끝에서 함께 돈다. `verify-founder-shared-header.mjs` 가 라이트 고정·버전 없는 studio-page.css 주소·공용 부품 사용을 확인한다.

@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 
 const html = readFileSync(new URL("../index.html", import.meta.url), "utf8");
@@ -73,3 +74,11 @@ if (failures.length > 0) {
 }
 
 console.log("Founder renewal verification passed");
+
+// T-261024-058: 생김새 복사·다크 되돌림 게이트(직접 숫자 래칫·다크 규칙·--tone-* 정의 복사). auto-merge.yml 이 이 파일을 부르므로 PR 마다 같이 돈다.
+// 저장소 뿌리에서 실행한다(게이트가 git ls-files 와 scripts/tone-copies-baseline.json 을 상대 경로로 읽는다).
+try {
+  execFileSync(process.execPath, ["scripts/verify-tone-copies.mjs"], { stdio: "inherit" });
+} catch (error) {
+  process.exit(error.status || 1);
+}
