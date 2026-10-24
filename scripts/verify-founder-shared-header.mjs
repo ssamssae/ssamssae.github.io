@@ -28,15 +28,29 @@ const checks = [
       /<meta property="og:title" content="강대종 · 마이너스베타스튜디오 대표"\/>/.test(html),
   },
   {
-    // T-261013-004: 색(라이트·다크)·폭은 회사홈 공용 원본 하나 — 이 페이지는 그 파일을 읽고, 자체 색 값·theme-color 를 두지 않는다.
-    label: "founder page reads the shared company tokens (light default + device dark)",
+    // T-261013-004: 색·폭은 회사홈 공용 원본 하나 — 이 페이지는 그 파일을 읽고, 자체 색 값·theme-color 를 두지 않는다.
+    // T-261024-058: 공개 사이트는 전부 라이트 — data-theme="light"·color-scheme 메타 light 로 고정한다. 공용 페이지 스타일은
+    //   버전 꼬리표 없는 고정 주소(캐시가 max-age=0 재검증)로 읽는다. 다크 규칙·직접 숫자·--tone-* 정의 복사는 scripts/verify-tone-copies.mjs 가 막는다.
+    label: "founder page reads the shared company tokens and is fixed to light (T-261024-058)",
     ok:
-      /<html lang="ko" data-theme="auto">/.test(html) &&
+      /<html lang="ko" data-theme="light">/.test(html) &&
+      /<meta name="color-scheme" content="light"\/>/.test(html) &&
       /<link rel="stylesheet" href="https:\/\/kangdaejong\.com\/brand\/current\/tokens\.css"\/>/.test(html) &&
+      /<link rel="stylesheet" href="https:\/\/kangdaejong\.com\/studio-page\.css"\/>/.test(html) &&
       html.indexOf("brand/current/tokens.css") < html.indexOf("./renewal.css") &&
       !/name="theme-color"/.test(html) &&
       !/prefers-color-scheme:\s*dark/.test(css) &&
       !/#08090A|#7170FF/.test(html + css),
+  },
+  {
+    // T-261024-058: 버튼·카드·글 링크는 공용 부품(.mb-btn·.mb-card·.mb-link)으로 만든다 — 자체 .r-button 모양·카드 숫자로 되돌리지 않는다.
+    label: "founder page builds buttons, cards and text links from the shared parts (.mb-btn/.mb-card/.mb-link)",
+    ok:
+      /<a class="mb-btn mb-btn--primary" href="https:\/\/kangdaejong\.com\/work\/">작업장 둘러보기/.test(html) &&
+      (html.match(/class="mb-card"/g) || []).length >= 6 &&
+      /<a class="mb-link" href="mailto:minusbetastudio@gmail\.com">/.test(html) &&
+      !/class="r-button"/.test(html) &&
+      !/\.r-button/.test(css),
   },
   {
     // T-261012-041: 공용 카드는 버전 없는 고정 주소 하나만 쓴다 — 카드 그림은 회사홈에서만 바꾸고 여기는 고칠 곳이 없다.

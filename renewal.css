@@ -1,5 +1,30 @@
-html{scroll-behavior:smooth}.renewal a{text-decoration:none}.r-hero{max-width:800px}.r-button{display:inline-flex;align-items:center;min-height:44px;margin-top:22px;color:var(--accent);font-size:13px}.f-poster{font-size:13px;color:var(--fg-mute);margin-top:18px}.r-index{display:flex;flex-wrap:wrap;gap:24px;padding:18px 0;border-top:1px solid var(--border);font-size:12px}.r-index>span{margin-right:auto;color:var(--fg-mute)}.r-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:23px}.r-heading>p{font-size:13px;color:var(--fg-dim)}.f-story{display:grid;grid-template-columns:1fr 1.5fr;gap:40px}.f-story blockquote{margin:0 0 20px;font-size:21px;line-height:1.6}.f-story p{font-size:14px;line-height:1.9;color:var(--fg-dim)}.f-work,.r-process{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.f-work>a,.r-process>article{padding:23px;background:var(--bg-elev);border:1px solid var(--border-soft);border-radius:12px}.f-work h3,.r-process h3{margin:16px 0 9px}.f-work p,.r-process p{font-size:13px;line-height:1.8;color:var(--fg-dim)}.f-work b,.r-process a{display:inline-flex;align-items:center;min-height:44px;font-size:12px;font-weight:500;color:var(--accent)}.r-about{padding:38px 0 48px;border-top:1px solid var(--border)}.r-about>p{font-size:14px;color:var(--fg-dim)}.r-links{display:flex;gap:24px;flex-wrap:wrap;font-size:13px}.r-links a{min-height:44px;display:inline-flex;align-items:center;color:var(--accent)}.skip-link{position:fixed;top:12px;left:16px;transform:translateY(-160%);background:var(--accent-cta);color:white;padding:10px;z-index:99}.skip-link:focus{transform:none}
-@media(max-width:650px){.r-index{gap:16px}.r-index>span{flex-basis:100%}.r-heading{display:block}.f-story,.f-work,.r-process{grid-template-columns:1fr;gap:14px}.f-work>a,.r-process>article{padding:19px 20px}.r-about{padding:29px 0 32px}}
+/* T-261024-058 · 생김새(모양·글자·간격)의 원본은 회사홈 공용 톤 파일 https://kangdaejong.com/brand/current/tokens.css 하나다.
+   이 파일은 그 파일의 --tone-* 이름과 .mb-* 부품(mb-btn·mb-card·mb-link)만 쓴다. 색은 T-261013-004 부터 같은 파일이다.
+   여기에는 px 숫자·색 값·--tone-* 정의·다크 규칙을 적지 않는다(scripts/verify-tone-copies.mjs·verify-palette-copies.mjs 가 막는다).
+   공개 사이트는 전부 라이트(2026-10-24 결정) — index.html 이 data-theme="light" 로 고정한다. index.html 이 tokens.css → studio-page.css → 이 파일 순서로 읽는다.
+   칸 나눔 기준: 미디어 쿼리는 var() 를 못 읽어서, 담는 상자가 공용 긴 글 폭(--tone-prose-max)보다 좁으면 한 칸으로 쌓고 넓으면 나란히 놓는다
+   (flex-basis 계산식 — 상자가 좁으면 큰 양수라 한 줄을 다 차지하고, 넓으면 음수라 0 으로 잘려 나란히 선다). */
+html{scroll-behavior:smooth}
+.renewal{--stack-basis:calc((var(--tone-prose-max) - 100%) * 999)}
+.renewal a{text-decoration:none}
+.r-hero{max-width:var(--tone-prose-max)}
+.r-hero .mb-btn{margin-top:var(--tone-space-4)}
+.f-poster{margin:var(--tone-space-3) 0 0;font-size:var(--tone-caption-size);line-height:var(--tone-caption-line);color:var(--fg-mute)}
+.r-index{display:flex;flex-wrap:wrap;gap:var(--tone-space-2) var(--tone-space-4);padding:var(--tone-space-3) 0;border-top:1px solid var(--border);font-size:var(--tone-caption-size);line-height:var(--tone-caption-line)}
+.r-index>span{flex:1 1 var(--stack-basis);color:var(--fg-mute)}
+.r-heading{display:flex;flex-wrap:wrap;align-items:end;gap:var(--tone-space-2) var(--tone-space-4);margin-bottom:var(--tone-space-4)}
+.r-heading>div{flex:1 1 var(--stack-basis)}
+.r-heading>p{margin:0 0 var(--tone-space-2);font-size:var(--tone-label-size);line-height:var(--tone-label-line);color:var(--fg-dim)}
+.f-story{display:flex;flex-wrap:wrap;gap:var(--tone-space-2) var(--tone-space-6)}
+.f-story>h2{flex:2 1 var(--stack-basis)}
+.f-story>div{flex:3 1 var(--stack-basis)}
+.f-story blockquote{margin:0 0 var(--tone-space-4);font-size:var(--tone-subtitle-size);line-height:var(--tone-subtitle-line)}
+.f-story p{color:var(--fg-dim)}
+.f-work,.r-process{display:flex;flex-wrap:wrap;gap:var(--tone-space-2)}
+.f-work>a,.r-process>article{flex:1 1 var(--stack-basis)}
+.r-about{margin-top:var(--tone-section-gap);padding:var(--tone-space-6) 0 var(--tone-section-gap);border-top:1px solid var(--border)}
+.r-about>p{color:var(--fg-dim)}
+.r-links{display:flex;flex-wrap:wrap;gap:var(--tone-space-4)}
+.skip-link{position:fixed;top:var(--tone-space-2);left:var(--tone-gutter);transform:translateY(-160%);z-index:99}
+.skip-link:focus{transform:none}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-/* T-261013-004 · 색(라이트·다크)·PC 폭은 회사홈 공용 원본 https://kangdaejong.com/brand/current/tokens.css 하나 — index.html 이 이 파일보다 먼저 읽는다.
-   여기에는 색 값을 적지 않는다(scripts/verify-palette-copies.mjs). */
