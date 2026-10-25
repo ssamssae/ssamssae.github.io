@@ -25,3 +25,11 @@ T-261012-029: 한국어/EN 전환 버튼 — 공용 헤더 `<mb-header ... lang-
 - 생김새: `renewal.css` 는 px 숫자 없이 `var(--tone-*)`(글자 크기·줄 간격·간격·둥글기·폭)와 공용 부품 `.mb-btn.mb-btn--primary`(버튼)·`.mb-card`(만드는 것·만들며 배운 것·일하는 방식 카드)·`.mb-link`(카드 안 링크·연락 링크)만 쓴다. 칸 나눔(3칸↔1칸, 제목 줄, 색인 줄)은 미디어 쿼리 대신 flex-basis 계산식으로 `--tone-prose-max` 를 기준 삼는다.
 - 확인: 390/1440px, 기기 라이트·다크 둘 다에서 바탕이 흰색이고 가로 넘침이 없다. 버튼이 파란 56px 둥근 버튼, 카드가 회색 둥근 면(선 없음), 카드 링크가 파란 밑줄 글 링크다. 공용 톤 파일 값을 바꾸면 이 페이지도 같이 바뀐다.
 - 게이트: `node scripts/verify-tone-copies.mjs`(기준선 0 — 직접 숫자가 생기면 실패, 다크 규칙·`--tone-*` 정의 복사는 즉시 실패) 가 `verify-founder-renewal.mjs` 끝에서 함께 돈다. `verify-founder-shared-header.mjs` 가 라이트 고정·버전 없는 studio-page.css 주소·공용 부품 사용을 확인한다.
+
+## T-261025-009: 메일 「주소 복사」
+
+- 진입점: https://kangdaejong.com/founder/ 맨 아래 「연락하기」.
+- 조작·기대: 「주소 복사」(글 링크 모양 버튼)를 누르면 클립보드에 `minusbetastudio@gmail.com` 이 들어가고, 화면 아래 토스트 「메일 주소를 복사했어요」(영어 화면 「Email address copied」)가 3초 뒤 사라진다. 버튼은 `data-mb-copy-email` 로 같은 줄의 메일 링크를 가리킨다 — 공개 화면에서는 Cloudflare 가 그 링크를 `/cdn-cgi/l/email-protection#…` 으로 가리므로 두 형태를 모두 찾는다.
+- 의존: 복사·토스트 동작과 모양은 회사 홈 공용 파일(`mb-components.js`·`tokens.css`, kangdaejong-com T-261025-009)이 준다. 회사 홈이 먼저 배포돼야 이 버튼이 동작한다.
+- 확인: 2026-10-25 제우스 로컬 — 회사 홈 작업 공간의 공용 파일을 끼운 브라우저 점검으로 한국어·영어·가려진 주소 복사를 확인했다(바꾸기 전 index.html 에서는 버튼이 없어 실패). `verify-founder-renewal.mjs`(사전 누락 0·톤 복사 0)·`verify-founder-shared-header.mjs`·`verify-palette-copies.mjs` 통과.
+- 미확인: 공개 배포 뒤 실제 화면.
